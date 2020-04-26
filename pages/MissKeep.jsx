@@ -1,6 +1,6 @@
 import KeepService from '../apps/MissKeep/keepServices/keepService.js'
 
-import Filter from '../apps/MissKeep/cmps/Filter.jsx'
+import Search from '../apps/MissKeep/cmps/Search.jsx'
 import AddNote from '../apps/MissKeep/cmps/AddNote.jsx'
 import NotesList from '../apps/MissKeep/cmps/NotesList.jsx'
 
@@ -11,7 +11,11 @@ export default class MissKeep extends React.Component {
     }
 
     componentDidMount() {
-        KeepService.query()
+        this.getNote()
+    }
+
+    getNote = (filter = null) => {
+        KeepService.query(filter)
             .then(notes => {
                 console.log('componentDidMount:', notes)
                 this.setState({ notes });
@@ -21,17 +25,16 @@ export default class MissKeep extends React.Component {
             })
     }
 
-
     render() {
         const { notes } = this.state
 
         return (
             <section>
                 <header>
-                    <Filter />
+                    <Search getNote={this.getNote} />
                 </header>
                 <main>
-                    <AddNote />
+                    {/* <AddNote /> */}
                     <section>
                         {notes &&
                             <NotesList notes={notes} />}
