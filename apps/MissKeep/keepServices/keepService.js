@@ -1,4 +1,4 @@
-import Utils from '../../../services/utilService.js'
+import Utils from '../../../services/utils.js'
 
 const NOTES_KEY = 'notes'
 
