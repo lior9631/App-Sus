@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* status bar diplay */
+
+
+.status-bar {
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    border-radius: 999px;
+    position: relative;
+    background-color: grey;
+    
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+.color-status {
+    position: absolute;
+    height: 100%;
+    border-radius: 999px;
+    background-color: red;
+    z-index: 1;
+}
+
+.the-nubmer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}

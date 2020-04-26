@@ -6,13 +6,15 @@ const STORAGE_KEY = 'mails'
 
 
 export default {
-    getMails,
+    
     getById,
     putRead,
-    remove
+    remove,
+    query, 
+    save
 }
 
-const gDefaultMails = [_createMail('instagram', 'wawawawa'), _createMail('instagram', 'wawawawa'), _createMail('instagram', 'wawawawa'), _createMail('instagram', 'wawawawa')]
+const gDefaultMails = [_createMail('facebook', 'shahar peretz'), _createMail('instagram', 'alo dai'), _createMail('twiter', 'lior ganel'), _createMail('linkedin', 'yaronBiton')]
 
 var gMails = null
 
@@ -34,14 +36,39 @@ function _createMail(subject, body, isRead, sentAt, id) {
     }
 }
 
+function save(mailToSave) {
+    var savedMail = mailToSave;
+    if (mailToSave.id) {
+        const mailIdx = gMails.findIndex(mail => mail.id === mailToSave.id)
+        gMails[mailIdx] = mailToSave;
+    } else {
+        savedMail = _createMail(mailToSave.subject, mailToSave.body)
+        gMails.push(savedMail)
+    }
+    storageService.store(STORAGE_KEY, gMails)
 
-function getMails() {
-    return Promise.resolve(gMails)
+
+    return Promise.resolve(savedMail)
 }
 
 
 function getById(id) {
     return Promise.resolve(gMails.find(mail => mail.id === id))
+}
+
+function query(filterBy) {
+    var mails = gMails;
+    console.log('fb' , filterBy);
+    
+    if (filterBy) {
+        var { words , isRead } = filterBy
+        mails = gMails.filter(mail => (mail.subject.includes(words) || mail.body.includes(words)))
+        if(isRead === true || isRead === false) mails = mails.filter(mail => mail.isRead === isRead)
+        
+    }
+
+
+    return Promise.resolve(mails);
 }
 
 
