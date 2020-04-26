@@ -5,8 +5,7 @@ export default class MisterEmail extends React.Component {
 
         return (
             <section>
-                Hello Mister-Email
-                Coming soon
+
             </section>
         )
     }
