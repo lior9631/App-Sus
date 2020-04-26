@@ -10,6 +10,7 @@ import Home from './pages/Home.jsx'
 import MisterEmail from './pages/MisterEmail.jsx'
 import MissKeep from './pages/MissKeep.jsx'
 import MissBook from './pages/MissBook.jsx'
+import EmailDetails from './apps/MisterEmail/pages/EmailDetails.jsx'
 
 export class App extends React.Component {
 
@@ -24,6 +25,7 @@ export class App extends React.Component {
                     <Switch>
                         <Route component={MissBook} path="/books" />
                         <Route component={MissKeep} path="/keep" />
+                        <Route component={EmailDetails} path="/email/:theMailId"/>
                         <Route component={MisterEmail} path="/email" />
                         <Route component={Home} path="/" />
                     </Switch>
