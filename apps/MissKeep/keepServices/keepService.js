@@ -1,10 +1,10 @@
-import UtilService from '../../../services/utilService.js'
+import Utils from '../../../services/utilService.js'
 
 const NOTES_KEY = 'notes'
 
 var gNotes = [
     {
-        id: UtilService.makeId(),
+        id: Utils.makeId(12),
         type: "NoteText",
         isPinned: true,
         info: {
@@ -12,7 +12,7 @@ var gNotes = [
         }
     },
     {
-        id: UtilService.makeId(),
+        id: Utils.makeId(12),
         type: "NoteImg",
         info: {
             url: "https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
@@ -23,7 +23,7 @@ var gNotes = [
         }
     },
     {
-        id: UtilService.makeId(),
+        id: Utils.makeId(12),
         type: "NoteTodos",
         info: {
             label: "How was it:",
