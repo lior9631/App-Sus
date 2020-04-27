@@ -8,7 +8,9 @@ export default class MisterEmail extends React.Component {
 
     state = {
         mails: null,
-        filterBy : null
+        filterBy: null,
+        onCompose: false,
+        starsFilter: false
     }
     componentDidMount() {
         this.getEmails()
@@ -26,15 +28,67 @@ export default class MisterEmail extends React.Component {
         this.setState({ filterBy }, () => this.getEmails())
     }
 
+    toggleCompose = () => {
+        this.setState(({ onCompose }) => ({ onCompose: !onCompose }))
+    }
+
+    setStar = (id) => {
+        mailServices.setStar(id).then(this.getEmails())
+
+    }
+    filterStars = (ev) => {
+        let filterBy = this.state.filterBy
+        let trueFalse = (!this.state.starsFilter) ? true : false
+        ev.target.classList.toggle('yellow')
+        mailServices.filterByStar(trueFalse, filterBy)
+            .then(data => {
+                this.setState({ mails: data }, this.setState({ starsFilter: trueFalse }))
+                return data
+            })
+
+    }
+
+    setUnRead = (id) => {
+        mailServices.setUnRead(id)
+            .then(this.getEmails())
+    }
+
+    setRead = (id) => {
+        mailServices.setRead(id)
+            .then(this.getEmails())
+
+    }
+
+    removeMail = (id) => {
+
+      
+                mailServices.remove(id)
+                    .then(this.getEmails())
+           
+    }
+
+
     render() {
-        const { mails } = this.state
+        const { mails, onCompose } = this.state
         return (
-            <section>
-                <h1>bookList</h1>
-                <EmailCompose />
-                <EmailFilter onSetFilter={ this.onSetFilter }/>
-                {mails && <EmailList mails={mails} />}
-                {mails && <EmailStatus mails={mails} />}
+            <section className="mister-email">
+                <EmailFilter onSetFilter={this.onSetFilter} />
+                {onCompose && <EmailCompose onSendMail={this.getEmails} onCompose={this.toggleCompose} />}
+                <section className="container">
+                    {mails && <EmailList removeMail={this.removeMail} mails={mails} setStar={this.setStar} setUnRead={this.setUnRead} setRead={this.setRead} />}
+
+                    <div className="side-nav">
+                        <div className="add-mail">
+                            <div onClick={this.toggleCompose} className="compose-icon"></div>
+                            <p onClick={this.toggleCompose} className="compose-paragraph">Compose</p>
+                        </div>
+                        <div onClick={(ev) => this.filterStars(ev)} className="far fa-star"> Stared</div>
+
+
+                        {mails && <EmailStatus mails={mails} />}
+                    </div>
+
+                </section>
             </section>
         )
     }

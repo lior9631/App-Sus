@@ -9,3 +9,9 @@ body {
 .active {
   color: goldenrod;
 }
+
+
+
+.far{
+  font-family: fontawesome;
+}

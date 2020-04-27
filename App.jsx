@@ -26,7 +26,7 @@ export class App extends React.Component {
                         <Route component={MissBook} path="/books" />
                         <Route component={MissKeep} path="/keep" />
                         <Route component={EmailDetails} path="/email/:theMailId"/>
-                        <Route component={MisterEmail} path="/email" />
+                        <Route component={MisterEmail} history={history} path="/email" />
                         <Route component={Home} path="/" />
                     </Switch>
                 </main>

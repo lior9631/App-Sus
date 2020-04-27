@@ -15,7 +15,7 @@ export default class EmailStatus extends React.Component {
     showStatus = () => {
         var mails = this.state.mails;
         const readingMails = mails.filter(mail => mail.isRead === true)
-        var precent = (readingMails.length / mails.length) * 100;
+        var precent =parseInt((readingMails.length / mails.length) * 100) ;
 
         this.setState({ precent }, () => { console.log(this.state.precent) })
 
