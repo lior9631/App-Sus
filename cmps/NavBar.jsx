@@ -7,7 +7,7 @@ export default class NavBar extends React.Component {
     render() {
 
         return (
-            <nav>
+            <nav className="app-nav">
                 <ul>
                     <li><NavLink exact to="/">Home</NavLink></li>
                     <li><NavLink exact to="/email">Mister Email</NavLink></li>

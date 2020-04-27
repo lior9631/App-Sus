@@ -18,7 +18,7 @@ export class App extends React.Component {
 
         return (
             <Router>
-                <header>
+                <header className="app-header">
                     <NavBar history={history} />
                 </header>
                 <main>

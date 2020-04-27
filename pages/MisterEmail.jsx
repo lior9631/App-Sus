@@ -14,6 +14,7 @@ export default class MisterEmail extends React.Component {
     }
     componentDidMount() {
         this.getEmails()
+        document.body.style.backgroundImage = "url('../assets/imgs/black_wall_free_texture_by_pshoudini_d5lkrgk.jpg')";
     }
     getEmails = () => {
         mailServices.query(this.state.filterBy)
@@ -61,10 +62,10 @@ export default class MisterEmail extends React.Component {
 
     removeMail = (id) => {
 
-      
-                mailServices.remove(id)
-                    .then(this.getEmails())
-           
+
+        mailServices.remove(id)
+            .then(this.getEmails())
+
     }
 
 
