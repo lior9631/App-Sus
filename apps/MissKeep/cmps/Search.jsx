@@ -1,7 +1,4 @@
 
-
-
-
 export default class Search extends React.Component {
 
     state = {
@@ -18,7 +15,7 @@ export default class Search extends React.Component {
 
         this.setState(prevState => ({
             filter: { ...prevState.filter, [field]: value }
-        }), () => this.props.getNote(this.state.filter))
+        }), () => this.props.getNotes(this.state.filter))
 
     }
 

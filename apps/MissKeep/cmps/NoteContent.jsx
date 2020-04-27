@@ -5,8 +5,6 @@ import NoteVideo from './NoteVideo.jsx'
 
 
 export default function NoteContent(props) {
-    console.log('props', props);
-
     const { type, info } = props
     switch (type) {
         case 'NoteText':
