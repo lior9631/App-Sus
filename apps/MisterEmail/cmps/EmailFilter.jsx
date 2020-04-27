@@ -2,7 +2,9 @@ export default class EmailFilter extends React.Component {
     state = {
         filter: {
             words: '',
-            isRead: ''
+            isRead: '',
+            notRead: ''
+
         }
     }
     handleChange = ({ target }) => {
@@ -10,31 +12,29 @@ export default class EmailFilter extends React.Component {
         const value = (target.type === 'checkbox') ? target.checked : target.value
         this.setState(prevState => ({ filter: { ...prevState.filter, [field]: value } }), () => {
             this.props.onSetFilter(this.state.filter)
+            
 
 
         })
     }
-
-    clearFilter = ()=>{
-        this.props.onSetFilter({filter: {
-            words: '',
-            isRead: ''
-        }})
+    toggleClass = (ev) =>{
+        const {target} = ev
+        target.classList.toggle("pushed")
 
     }
+
     render() {
-        const { isRead, words } = this.state.filter
+        const { isRead, words, notRead } = this.state.filter
         return (
-            <React.Fragment>
-                <h1>Filter:</h1>
-                <form>
-                    <label htmlFor="words">By words</label>
-                    <input type="text" name='words' value={words} onChange={this.handleChange} />
-                    <label htmlFor="isRead">readed messages</label>
-                    <input type="checkbox" name='isRead' value={isRead} onChange={this.handleChange} />
-                    <div className="clear-filter" onClick={this.clearFilter}>CLEAR</div>
+            <div className="filter-container">
+                <form className="filter-form">
+                    <input className="search-input" autoComplete="off" placeholder="&#xF002; Search" type="text" name='words' value={words} onChange={this.handleChange}  />
+                    <label onClick={this.toggleClass} className="isRead" htmlFor="isRead">Read</label>
+                    <input  id="isRead" type="checkbox" name='isRead' value={isRead} onChange={this.handleChange} />
+                    <label onClick={this.toggleClass} className="notRead" htmlFor="notRead">Unread</label>
+                    <input id="notRead" type="checkbox" name='notRead' value={notRead} onChange={this.handleChange} />
                 </form>
-            </React.Fragment>
+            </div>
         )
     }
 }
