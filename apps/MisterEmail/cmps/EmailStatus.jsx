@@ -1,3 +1,5 @@
+import {eventBus} from '../../../services/eventBusService.js'
+
 export default class EmailStatus extends React.Component {
 
     state = {
@@ -7,9 +9,14 @@ export default class EmailStatus extends React.Component {
 
 
     componentDidMount() {
-
+        
+       this.busbus = eventBus.on('changeBar' , (data)=> this.renderStatus(data))
         this.setState({ mails: this.props.mails }, this.showStatus)
 
+    }
+
+    componentWillUnMount(){
+        this.busbus()
     }
 
     showStatus = () => {
@@ -17,11 +24,17 @@ export default class EmailStatus extends React.Component {
         const readingMails = mails.filter(mail => mail.isRead === true)
         var precent =parseInt((readingMails.length / mails.length) * 100) ;
 
-        this.setState({ precent }, () => { console.log(this.state.precent) })
+        this.setState({ precent })
 
 
 
     }
+
+    renderStatus = (data) =>{
+        this.setState({mails: data}, this.showStatus())
+    }
+
+
 
 
     render() {

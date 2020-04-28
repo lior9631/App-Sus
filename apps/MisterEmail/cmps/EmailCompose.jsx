@@ -14,7 +14,6 @@ export default class EmailCompose extends React.Component {
         ev.preventDefault()
         mailService.save(this.state)
             .then(savedMail => {
-                console.log('mail sent!', savedMail);
                 this.resetForm()
                 this.props.onSendMail()
                 this.props.history.push('/email')
@@ -42,7 +41,6 @@ export default class EmailCompose extends React.Component {
         const field = target.name
         const value = target.value
         this.setState(prevState => ({ ...prevState.filter, [field]: value }))
-        console.log('stateCVAL', this.state)
     }
 
 
