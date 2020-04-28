@@ -27,9 +27,24 @@ export default class AddNote extends React.Component {
         ev.preventDefault()
 
         KeepService.addNote(this.state)
+        this.resetForm()
         this.props.getNotes()
     }
 
+    resetForm = () => {
+        this.setState({
+            isColorsShow: false,
+            type: 'NoteText',
+            isPinned: false,
+            info: {
+                title: '',
+                txt: ''
+            },
+            style: {
+                backgroundColor: 'white'
+            }
+        })
+    }
     handleChange = ({ target }) => {
         console.log(target)
         const field = target.name
@@ -51,13 +66,17 @@ export default class AddNote extends React.Component {
     }
 
     pinNote = () => {
-        this.setState(({ isPinned }) => ({ isPinned: !isPinned }), () => { console.log('isPinned:', this.state.isPinned) })
+        this.setState(({ isPinned }) => ({ isPinned: !isPinned }))
     }
 
     changeColor = (color) => {
         this.setState(prevState => ({
             style: { ...prevState.style, backgroundColor: color }
         }))
+    }
+
+    onColorPlate = () => {
+        this.setState(({ isColorsShow }) => ({ isColorsShow: !isColorsShow }))
     }
 
     render() {
@@ -85,13 +104,13 @@ export default class AddNote extends React.Component {
                             </div>
                             <div className="colors">
                                 {/* <Colors setState={this.setState} /> */}
-                                {isColorsShow && <Colors changeColor={this.changeColor} />}
-                                {/* <button className="btn-note-background" type="button" onClick={() => { this.setState(({ isPinned }) => ({ isPinned: !isPinned })}}></button> */}
+                                {isColorsShow && <Colors changeColor={this.changeColor} onColorPlate={this.onColorPlate} />}
+                                <button className="btn-note-background" type="button" onClick={this.onColorPlate}></button>
                             </div>
                         </div>
                         <div className="actions-btn">
+                            <button className="btn-clear" type="button" ><img src="../../assets/img/clear.png" />clear</button>
                             <button className="btn-submit" type="submit" ><img src="../../assets/img/ok.png" />OK</button>
-                            {/* <button className="btn-close" type="button" ><img src="../../assets/img/close.png" />Close</button> */}
                         </div>
                     </div>
                 </form>

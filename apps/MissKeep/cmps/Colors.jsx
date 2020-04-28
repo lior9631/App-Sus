@@ -13,6 +13,7 @@ export default class Colors extends React.Component {
             ['#fff475', '#fbbc04', '#f28b82', '#fff', '#aecbfa', '#cbf0f8',
                 '#a7ffeb', '#ccff90', '#e8eaed', '#e6c9a8', '#fdcfe8', '#d7aefb']
 
+        const { onColorPlate } = this.props
         return (
             <div className='colors-plate' >
                 {
@@ -21,11 +22,11 @@ export default class Colors extends React.Component {
                             <button key={idx}
                                 style={{
                                     backgroundColor: color
-                                }} onClick={() => { this.onColor(color) }}></button>
+                                }} onClick={() => { this.onColor(color) }} type="button"></button>
                         )
                     })
                 }
-                < button className='actions-btns' type="button" > X</button>
+                < button className='actions-btns' type="button" onClick={onColorPlate}> X</button>
             </div >
 
         )

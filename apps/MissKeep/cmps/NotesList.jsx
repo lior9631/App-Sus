@@ -18,6 +18,10 @@ export default class NotesList extends React.Component {
                 <section className="note-list">
                     {notes.filter(note => !note.isPinned).map(note => <Note key={note.id} note={note} getNotes={getNotes} />)}
                 </section>
+                {/* <section className="note-list">
+                    {notes.filter(note => note.isPinned).map(note => <Note key={note.id} note={note} getNotes={getNotes} />)}
+                    {notes.filter(note => !note.isPinned).map(note => <Note key={note.id} note={note} getNotes={getNotes} />)}
+                </section> */}
             </React.Fragment>
         )
     }

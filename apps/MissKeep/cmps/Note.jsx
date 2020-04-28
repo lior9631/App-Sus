@@ -8,6 +8,11 @@ export default class Note extends React.Component {
         this.props.getNotes()
     }
 
+    deleteNote = (idNote) => {
+        ServiceStorage.deleteNote(idNote)
+        this.props.getNotes()
+    }
+
     render() {
         const { id, type, isPinned, info, style } = this.props.note
         const isPinStyle = {
@@ -15,7 +20,8 @@ export default class Note extends React.Component {
         }
         return (
             <article style={style} className="note">
-                <button className="btn-pin-note" style={isPinStyle} onClick={() => { this.onPin(id) }}></button>
+                <button className="btn-note btn-pin-note" style={isPinStyle} onClick={() => { this.onPin(id) }}></button>
+                <button className="btn-note btn-del-note" onClick={() => { this.deleteNote(id) }}></button>
                 <NoteContent type={type} info={info} key={id} />
             </article>
         )
