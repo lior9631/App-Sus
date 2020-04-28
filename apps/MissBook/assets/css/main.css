@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  background-color: #e6e2d3;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.header-app {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #8c7257;
+  height: 100px;
+  padding: 0 80px;
+  box-shadow: inset 0 0 3px 2px #584a3b;
+  border-block-end: 3px solid #735e48;
+}
+.nav-bar {
+  display: flex;
+  align-items: center;
+}
+.nav-bar ul {
+  display: flex;
+  font-size: x-large;
+  color: black;
+  padding: 0;
+}
+.nav-bar li {
+  list-style-type: none;
+}
+.nav-bar li:hover {
+  box-shadow: inset 0 0 3px 2px #584a3b;
+}
+
+.nav-bar .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 120px;
+  color: beige;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 25px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+.nav-bar .active {
+  color: gold;
+}
+
+.book-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-filter-form {
+  display: flex;
+  font-size: 16px;
+  justify-items: center;
+  align-items: center;
+}
+.book-filter-form label {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-inline-end: 5px;
+}
+.book-filter-form label::after {
+  content: ":";
+}
+.book-filter-form input {
+  padding: 2px 5px;
+  margin-inline-end: 15px;
+}
+.book-price-filter {
+  display: flex;
+  justify-items: center;
+}
+.book-price-filter input {
+  width: 80px;
+  margin-inline-end: 5px;
+}
+.book-filter-form button {
+  margin-block-start: 5px;
+  padding: 5px 15px;
+  background-color: #3dc323;
+  border: none;
+  box-shadow: inset 0 0 3px 0px #459041;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 400ms;
+}
+.book-filter-form button:hover {
+  background-color: #37aa20;
+}
+
+.books-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  margin: 20px;
+  background-color: #dac292;
+  cursor: pointer;
+  width: 250px;
+}
+.book img {
+  height: 250px;
+}
+.book h2 {
+  margin: 0px 0 5px;
+  text-decoration: underline;
+  text-align: center;
+}
+.book h3 {
+  margin: 0px 0 10px;
+}
+.book p {
+  margin: 3px 0 0;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.button-back {
+  background-color: transparent;
+  border: transparent;
+  outline: none;
+  font-size: large;
+  color: blue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-back:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.details-book-container {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.details-book-container h1 {
+  font-size: 2.5em;
+  text-decoration: underline;
+  text-align: center;
+  margin: 15px 0 25px;
+}
+
+.book-details {
+  font-size: large;
+  margin-block-end: 50px;
+  width: 100%;
+}
+
+.book-details img {
+  width: 150px;
+  height: 100%;
+  margin: auto 15px;
+}
+.book-details .content {
+  display: inline-block;
+}
+.book-details h1 {
+  text-align: start;
+  max-width: 520px;
+  font-size: 1.7em;
+  margin: 0px 0 7px;
+}
+.book-details h2 {
+  max-width: 520px;
+  font-size: 1.3em;
+  margin: 0 0 2px;
+}
+.book-details h3 {
+  max-width: 520px;
+  margin: 0 0 10px;
+  font-size: 1.2em;
+}
+.book-details p {
+  margin: 0;
+}
+.book-details .detail {
+  display: flex;
+  margin-block-end: 5px;
+  font-size: 1.12em;
+}
+.book-details .title {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-inline-end: 5px;
+}
+.book-details .description {
+  clear: both;
+  margin: 20px 0 5px;
+  font-size: 1.12em;
+}
+
+.form-container h2 {
+  text-decoration: underline;
+}
+.review-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  width: 350px;
+}
+.review-form label {
+  margin-inline-end: 10px;
+  font-weight: bold;
+}
+.review-form input,
+.review-form select {
+  padding: 5px 10px;
+  font-size: 0.8em;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+.review-form textarea {
+  font-size: 0.9em;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 10px 0;
+}
+.review-form div {
+  display: flex;
+  padding: 5px;
+}
+.review-form button {
+  align-self: center;
+  width: 100px;
+  padding: 10px;
+  font-size: 0.9em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #00bf49;
+  border: 1px solid #0aa913;
+  box-shadow: inset 0 0 4px 0px #125804;
+  transition: background-color 400ms;
+  outline: none;
+}
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+  border: 2px solid black;
+  border-radius: 3px;
+  font-size: 20px;
+}
+.post .post-header {
+  padding: 10px;
+  background-color: #dac292;
+  border-block-end: 2px solid black;
+  font-weight: bold;
+}
+.btn-post-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.post-header button {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+.post-header p {
+  margin: 0;
+}
+.post-header .title {
+  display: flex;
+  justify-content: space-between;
+  margin-block-end: 5px;
+}
+.post main {
+  padding: 0 10px;
+  background-color: white;
+}
+
+.books-add-list {
+  background-color: #e6e2d3;
+}
+.books-add-list li {
+  background-color: #dac292;
+  margin: 5px 0;
+  list-style: none;
+}
+.books-add-list ul {
+  background-color: blanchedalmond;
+  padding: 0;
+  width: 550px;
+}
+.book-to-add {
+  display: flex;
+  justify-content: space-between;
+  font-size: larger;
+  width: 100%;
+}
+.book-to-add button {
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  background-color: #232b2b;
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+/* HELPERS */
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+
+.bold {
+  font-weight: bold;
+  margin-inline-start: 5px;
+}
+
+.userMsg {
+  position: absolute;
+  top: 103px;
+  border-radius: 5px;
+  width: 300px;
+  padding: 10px;
+  margin: 0px;
+  background-color: whitesmoke;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 2px 3px 0;
+}
+
+.userMsg button {
+  float: right;
+  border-radius: 50%;
+  padding: 3px 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-inline-start: 10px;
+}
+p {
+  margin: 0;
+}
