@@ -1,9 +1,9 @@
-import { eventBus } from '../services/eventBusService.js'
+import { eventBus } from '../../../services/eventBusService.js'
 
 const { Link } = ReactRouterDOM
 
 
-export class UserMsg extends React.Component {
+export default class UserMsg extends React.Component {
     timeout
     state = {
         msg: {
@@ -46,7 +46,7 @@ export class UserMsg extends React.Component {
             backgroundColor: color
         }
 
-        return (!txt) ? '' : 
+        return (!txt) ? '' :
             <aside className="userMsg" style={cmpStyle}>
                 <button style={btnStyle} onClick={this.onBtn}>X</button>
                 <p> {txt} </p>

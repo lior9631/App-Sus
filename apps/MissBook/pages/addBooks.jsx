@@ -1,5 +1,5 @@
 import BookService from '../services/booksService.js'
-import { eventBus } from '../services/eventBusService.js'
+import { eventBus } from '../../../services/eventBusService.js'
 
 import { BookToAdd } from '../cmps/book-to-add.jsx'
 
@@ -14,6 +14,7 @@ export class AddBooks extends React.Component {
         const field = target.name
         const value = (target.type === 'number') ? parseInt(target.value) : target.value
         this.setState({ [field]: value })
+
     }
 
     onSearch = (ev) => {
@@ -47,10 +48,10 @@ export class AddBooks extends React.Component {
     render() {
         const { inputSearch, books } = this.state
         return (
-            <main>
-                <form onSubmit={this.onSearch}>
+            <main className="container-add-book">
+                <form onSubmit={this.onSearch} className="form-add-book">
                     <input type="text" name="inputSearch" value={inputSearch} onChange={this.handleChange} placeholder="Enter book name" />
-                    <button>Search</button>
+                    <button className="btn-form-add-book">Search</button>
                 </form>
 
                 <section className="books-add-list">

@@ -13,11 +13,7 @@ import MissBook from './pages/MissBook.jsx'
 import EmailDetails from './apps/MisterEmail/pages/EmailDetails.jsx'
 
 
-
-
-// import { UserMsg } from '../appSus/apps/MissBook/cmps/user-msg.jsx'
-
-
+import UserMsg from './apps/MissBook/cmps/user-msg.jsx'
 import { BookDetails } from './apps/MissBook/pages/Book-details.jsx'
 import { AddBooks } from './apps/MissBook/pages/addBooks.jsx'
 
@@ -32,7 +28,7 @@ export class App extends React.Component {
                     <NavBar history={history} />
                 </header>
                 <main>
-                {/* <UserMsg /> */}
+                    {/* <UserMsg /> */}
                     <Switch>
                         <Route component={MissKeep} path="/keep" />
                         <Route component={EmailDetails} path="/email/:theMailId" />

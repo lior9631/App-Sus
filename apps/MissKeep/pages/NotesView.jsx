@@ -3,6 +3,8 @@ import KeepService from '../keepServices/keepService.js'
 import Search from '../cmps/Search.jsx'
 import AddNote from '../cmps/AddNote.jsx'
 import NotesList from '../cmps/NotesList.jsx'
+import EditNote from './EditNote.jsx'
+
 
 export default class NotesView extends React.Component {
     state = {
@@ -11,7 +13,7 @@ export default class NotesView extends React.Component {
 
     componentDidMount() {
         this.getNotes()
-        
+
     }
 
     getNotes = (filter = null) => {
@@ -29,18 +31,21 @@ export default class NotesView extends React.Component {
         const { notes } = this.state
 
         return (
-            <section>
-                <header>
-                    <Search getNotes={this.getNotes} />
-                </header>
-                <main>
-                    <AddNote getNotes={this.getNotes} />
-                    <section>
-                        {notes &&
-                            <NotesList notes={notes} getNotes={this.getNotes}/>}
-                    </section>
-                </main>
-            </section>
+            <React.Fragment>
+                <section>
+
+                    <header>
+                        <Search getNotes={this.getNotes} />
+                    </header>
+                    <main>
+                        <AddNote getNotes={this.getNotes} />
+                        <section className="container-notes-list">
+                            {notes &&
+                                <NotesList notes={notes} getNotes={this.getNotes} />}
+                        </section>
+                    </main>
+                </section>
+            </React.Fragment>
         )
     }
 }

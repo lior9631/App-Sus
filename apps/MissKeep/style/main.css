@@ -1,13 +1,5 @@
 /* @import url("./cmps/note/style.css"); */
-
-img {
-  width: 100%;
-}
-
-button {
-  cursor: pointer;
-  outline: none;
-}
+@import url(./EditNote/EditNote.css);
 
 .note {
   position: relative;
@@ -17,17 +9,18 @@ button {
   border-radius: 5px;
   margin: 20px;
   text-align: center;
+
+  /* break-inside: avoid; */
 }
 
-.btn-pin-note {
-  background-image: url(../../../assets/img/pin.png);
+.note img {
+  width: 100%;
+}
+
+.btn-note {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 90%;
-  background-color: white;
   position: absolute;
-  left: -15px;
-  top: -15px;
   width: 30px;
   height: 30px;
   border: 2px solid black;
@@ -36,14 +29,38 @@ button {
   margin: 5px;
 }
 
+.btn-pin-note {
+  background-image: url(../../../assets/img/pin.png);
+  left: -15px;
+  top: -15px;
+  background-color: white;
+  background-size: 90%;
+}
+
+.btn-del-note {
+  background-image: url(../../../assets/img/delete.png);
+  left: 25px;
+  top: -15px;
+  background-color: #d11e1e;
+  background-size: 90%;
+}
+
 .note p {
   word-wrap: break-word;
 }
 
+.container-notes-list {
+  display: flex;
+  flex-direction: column;
+}
+
 .note-list {
+  /* columns: 310px 10;
+  column-gap: 20px; */
   display: flex;
   flex-wrap: wrap;
 }
+
 .add-note {
   margin-block-start: 5px;
   width: 600px;
@@ -55,7 +72,6 @@ button {
   border: 2px solid black;
   border-radius: 5px;
   margin: 5px 0;
-  /* background-color: white; */
 }
 
 .add-note input {
@@ -133,10 +149,13 @@ button {
 
 .btn-submit {
   color: green;
+  position: relative;
+  top: 3px;
+  margin-inline-end: 20px;
 }
 
 .btn-submit img {
-  position: relative;
+  margin-inline-end: 1px;
   top: 1px;
   left: 2px;
   height: 1em;
@@ -163,18 +182,17 @@ button {
   border: transparent;
 }
 
-.actions-btn img {
-  margin-inline-end: 1px;
-}
-
-.btn-close {
+.btn-clear {
+  display: flex;
+  justify-content: center;
   color: brown;
+  margin-inline-end: 15px;
 }
-.btn-close img {
+.btn-clear img {
   position: relative;
   top: 2px;
-  height: 0.8em;
-  width: 0.8em;
+  height: 1em;
+  width: 1em;
 }
 
 .btn-pin-note-add {

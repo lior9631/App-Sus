@@ -1,0 +1,30 @@
+.edit-note {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.89);
+  z-index: 1;
+  cursor: pointer;
+}
+.addNote-container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  width: 50%;
+  /* background-color: deepskyblue; */
+  transform: translate(-50%);
+
+}
+.addNote-container .add-note form {
+  margin: 0 auto;
+  cursor: default;
+  width: 96%;
+  height: 300px
+}
+.addNote-container textarea{
+  
+}

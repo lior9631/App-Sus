@@ -8,12 +8,19 @@
   src: url(../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf);
 }
 
+
 body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
 }
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
 
 .active {
   color: goldenrod;
