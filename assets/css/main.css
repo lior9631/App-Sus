@@ -1,17 +1,40 @@
 @import url("../../apps/MissKeep/style/main.css");
 @import url("../../apps/MisterEmail/style/email.css");
+@import url("../../apps/MissBook/assets/css/main.css");
 
+/* FONTS */
+@font-face {
+  font-family: Playfair;
+  src: url(../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf);
+}
 
 body {
-  background-color: lightblue;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 
 .active {
   color: goldenrod;
 }
 
-
-
-.far{
+.far {
   font-family: fontawesome;
+}
+.app-header {
+  /* background-color: #a6e89f; */
+  margin: 0;
+}
+.app-nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+.app-nav li {
+  list-style: none;
+}
+.app-nav a {
+  font-family: Playfair;
+  color: white;
+  font-size: 2.5em;
 }

@@ -27,7 +27,7 @@ _createMails()
 function _createMails() {
     gMails = storageService.load(STORAGE_KEY, gDefaultMails)
     storageService.store(STORAGE_KEY, gMails)
-    if(!gMails.length) gMails = [_createMail('facebook', 'shahar peretz'), _createMail('instagram', 'alo dai'), _createMail('twiter', 'lior ganel'), _createMail('linkedin', 'yaronBiton')]
+    if (!gMails.length) gMails = [_createMail('facebook', 'shahar peretz'), _createMail('instagram', 'alo dai'), _createMail('twiter', 'lior ganel'), _createMail('linkedin', 'yaronBiton')]
 
 }
 
@@ -44,17 +44,27 @@ function _createMail(subject, body) {
     }
 }
 
-function setUnRead(id){
+function setUnRead(id) {
     getById(id)
-    .then(mail => mail.isRead = false)
+        .then(mail => {
+            mail.isRead = false
+            storageService.store(STORAGE_KEY, gMails)
+        })
+
+
 
     return Promise.resolve()
 }
-function setRead(id){
-    getById(id)
-    .then(mail => mail.isRead = true)
 
-    storageService.store(STORAGE_KEY, gMails)
+
+function setRead(id) {
+    getById(id)
+        .then(mail => {
+            mail.isRead = true
+            storageService.store(STORAGE_KEY, gMails)
+
+        })
+
 
     return Promise.resolve()
 }
@@ -71,12 +81,12 @@ function setStar(id) {
 }
 
 
-function filterByStar(boolean , filterBy) {
+function filterByStar(boolean, filterBy) {
     console.log('boolean is ', boolean)
     var mails = gMails
     mails = query(filterBy)
     if (boolean === true) mails = gMails.filter(mail => mail.isStar === boolean)
-    
+
 
 
     return Promise.resolve(mails)
