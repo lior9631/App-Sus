@@ -7,6 +7,7 @@ import Colors from './Colors.jsx'
 export default class AddNote extends React.Component {
 
     state = {
+        isColorsShow: false,
         type: 'NoteText',
         isPinned: false,
         info: {
@@ -14,7 +15,7 @@ export default class AddNote extends React.Component {
             txt: ''
         },
         style: {
-            backgroundColor: "white"
+            backgroundColor: 'white'
         }
     }
 
@@ -53,14 +54,20 @@ export default class AddNote extends React.Component {
         this.setState(({ isPinned }) => ({ isPinned: !isPinned }), () => { console.log('isPinned:', this.state.isPinned) })
     }
 
+    changeColor = (color) => {
+        this.setState(prevState => ({
+            style: { ...prevState.style, backgroundColor: color }
+        }))
+    }
+
     render() {
-        const { type, info, isPinned } = this.state
+        const { type, info, isPinned, style, isColorsShow } = this.state
 
         const isPinStyle = {
             backgroundColor: isPinned ? '#ffd15c ' : 'white'
         }
         return (
-            <section className="add-note">
+            <section className="add-note" style={style}>
                 <form onSubmit={this.addNote}>
                     <div>
                         <button className="btn-pin-note-add" onClick={this.pinNote} type="button" style={isPinStyle}></button>
@@ -77,8 +84,9 @@ export default class AddNote extends React.Component {
                                 <button className="btn-video" type="button" onClick={() => { this.changeType('NoteVideo') }}></button>
                             </div>
                             <div className="colors">
-                                {/* <Colors /> */}
-                                <button className="btn-note-background" type="button"></button>
+                                {/* <Colors setState={this.setState} /> */}
+                                {isColorsShow && <Colors changeColor={this.changeColor} />}
+                                {/* <button className="btn-note-background" type="button" onClick={() => { this.setState(({ isPinned }) => ({ isPinned: !isPinned })}}></button> */}
                             </div>
                         </div>
                         <div className="actions-btn">

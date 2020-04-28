@@ -12,6 +12,9 @@ var gNotes = [
         info: {
             title: 'My Text',
             txt: "Fullstack Me Baby!"
+        },
+        style: {
+            backgroundColor: "white"
         }
     },
     {
@@ -24,7 +27,7 @@ var gNotes = [
             txt: "Me playing Mi"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#aecbfa"
         }
     },
     {
@@ -38,6 +41,9 @@ var gNotes = [
                 { txt: "Do that", doneAt: null },
                 { txt: "Do this", doneAt: 187111111 }
             ]
+        },
+        style: {
+            backgroundColor: "#fff475"
         }
     }
 ]
