@@ -4,7 +4,6 @@ export default class EmailPreview extends React.Component {
 
     render() {
         const { subject, body, sentAt, isRead, isStar, delivery } = this.props
-
         return (
 
             <Link to={`/email/${this.props.id}`}>
@@ -13,7 +12,7 @@ export default class EmailPreview extends React.Component {
 
                     <section className="preview-words">
                         <p className="subject-preview"> {subject}-</p>
-                        <p className="body-preview"> {body}</p>
+                        <p className="body-preview">{body.substring(0, 30)}{(body.length > 30) && '...' }</p>
                     </section>
 
                     <p className="date">{sentAt}</p>

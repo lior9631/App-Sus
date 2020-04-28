@@ -18,10 +18,20 @@ export default {
     setRead,
     bringAllMails,
     sendToTrash,
-    filterByTrash
+    filterByTrash,
+    filterBySent
 }
 
-const gDefaultMails = [_createMail('nevo', 'facebook', 'shahar peretz'), _createMail('gil', 'instagram', 'alo dai'), _createMail('shahar', 'twiter', 'lior ganel'), _createMail('alon', 'linkedin', 'yaronBiton')]
+const gDefaultMails = [
+    _createMail('nevo', 'facebook', 'coing academaly'),
+    _createMail('gil', 'instagram', 'alo dai'),
+    _createMail('shahar', 'twiter', 'lior ganel'),
+    _createMail('alon', 'linkedin', 'yaronBiton')
+]
+
+
+
+
 
 var gMails = null
 
@@ -39,18 +49,18 @@ function _createMails() {
 
 }
 
-function _createMail(delivery, subject, body) {
+function _createMail(delivery, subject, body, isRead = false , isSent=false) {
     let time = new Date();
     let date = `${time.getDate()}/${time.getMonth()}/${time.getFullYear()}`
     return {
         delivery,
         subject,
         body,
-        isRead: false,
+        isRead,
         sentAt: date,
         isStar: false,
         isDelete: false,
-        isSent: false,
+        isSent,
         id: utils.makeId()
     }
 }
@@ -92,11 +102,11 @@ function setRead(id) {
 function sendToTrash(id) {
     getById(id)
         .then(mail => {
-            if(!mail.isDelete) {
+            if (!mail.isDelete) {
                 mail.isDelete = true
                 storageService.store(STORAGE_KEY, gMails)
-                
-            }else remove(mail.id)
+
+            } else remove(mail.id)
         })
 
     return Promise.resolve()
@@ -120,8 +130,11 @@ function setStar(id) {
 
 function save(mailToSave) {
     var savedMail = mailToSave;
-    savedMail = _createMail(mailToSave.subject, mailToSave.body)
+   
+
+    savedMail = _createMail(mailToSave.from, mailToSave.subject, mailToSave.body , false , true)
     gMails.push(savedMail)
+    console.log('gmails', gMails)
 
     storageService.store(STORAGE_KEY, gMails)
 
@@ -135,14 +148,15 @@ function getById(id) {
 }
 
 function query(filterBy) {
-    var mails = gMails;
-    console.log('fb', filterBy);
-    mails = mails.filter(mail => mail.isDelete === false)
+    
+    var mails = gMails.filter(mail => !mail.isDelete)
+    console.log('mailsbeforefilterby' , mails)
     if (filterBy) {
         var { words, isRead, notRead } = filterBy
-        mails = gMails.filter(mail => (mail.subject.includes(words) || mail.body.includes(words)))
-        if (isRead === true) mails = mails.filter(mail => mail.isRead === true)
-        if (notRead === true) mails = mails.filter(mail => mail.isRead === false)
+        mails = mails.filter(mail => (mail.subject.includes(words) || mail.body.includes(words)))
+
+        if (isRead === true) mails = mails.filter(mail => mail.isRead)
+        if (notRead === true) mails = mails.filter(mail => !mail.isRead)
 
     }
 
@@ -171,18 +185,26 @@ function remove(mailId) {
 function filterByStar() {
     let mails = gMails;
     mails = mails.filter(mail => mail.isDelete === false)
-    console.log('firstFilter' , mails)
-    
+    console.log('firstFilter', mails)
+
     mails = mails.filter(mail => mail.isStar === true)
-    console.log('second' , mails)
+    console.log('second', mails)
     return Promise.resolve(mails)
 }
 
 function filterByTrash() {
     let mails = gMails;
-    console.log('before filter' , mails)
+    console.log('before filter', mails)
     mails = mails.filter(mail => mail.isDelete === true)
-    console.log('after filter' , mails)
-    
+    console.log('after filter', mails)
+
     return Promise.resolve(mails)
+}
+
+function filterBySent(){
+    let mails = gMails;
+    mails = mails.filter(mail => !mail.isDelete) 
+    mails = mails.filter(mail => mail.isSent)
+    return Promise.resolve(mails)
+
 }

@@ -1,56 +1,32 @@
-import {eventBus} from '../../../services/eventBusService.js'
+import { eventBus } from '../../../services/eventBusService.js'
 
-export default class EmailStatus extends React.Component {
+export default function EmailStatus(props) {
 
-    state = {
-        mails: null,
-        precent: null
-    }
+    function showStatus() {
+        // var mails = this.props.mails;
+        const readingMails = props.mails.filter(mail => !mail.isDelete && mail.isRead)
 
+        if(props.mails.length != 0){
+        // const readingMails = mails.filter(mail => mail.isRead === true)
+        var precent = parseInt((readingMails.length / props.mails.length) * 100);
+        }else precent = 0
 
-    componentDidMount() {
         
-       this.busbus = eventBus.on('changeBar' , (data)=> this.renderStatus(data))
-        this.setState({ mails: this.props.mails }, this.showStatus)
 
-    }
-
-    componentWillUnMount(){
-        this.busbus()
-    }
-
-    showStatus = () => {
-        var mails = this.state.mails;
-        const readingMails = mails.filter(mail => mail.isRead === true)
-        var precent =parseInt((readingMails.length / mails.length) * 100) ;
-
-        this.setState({ precent })
-
-
-
-    }
-
-    renderStatus = (data) =>{
-        this.setState({mails: data}, this.showStatus())
+        return precent
     }
 
 
-
-
-    render() {
-        const { precent } = this.state
-        const pStyle = {
-            width: `${this.state.precent}%`
-        }
-        return (
-
-            <section className="status-bar">
-                <div className="full-width" className="grey-status"></div>
-                <div style={pStyle} className="color-status"></div>
-                <div className="the-nubmer">{precent}%</div>
-            </section>
-        )
+    const pStyle = {
+        width: `${showStatus()}%`
     }
-
-
+    return (
+        <section className="status-bar">
+            <div className="full-width" className="grey-status"></div>
+            <div style={pStyle} className="color-status"></div>
+            <div className="the-nubmer">{showStatus()}%</div>
+        </section>
+    )
 }
+
+

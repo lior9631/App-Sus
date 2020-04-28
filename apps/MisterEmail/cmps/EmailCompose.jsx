@@ -3,8 +3,10 @@ import mailService from "../mailServices/mailService.js"
 export default class EmailCompose extends React.Component {
 
     state = {
+        from : '',
         subject: '',
         body: ''
+
     }
 
 
@@ -16,14 +18,14 @@ export default class EmailCompose extends React.Component {
             .then(savedMail => {
                 this.resetForm()
                 this.props.onSendMail()
-                this.props.history.push('/email')
-
+                // this.props.history.push('/email')
+                this.props.onCompose()
+                
             })
             .catch(err => {
                 console.log('OOPs', err);
 
             })
-            this.props.onCompose()
     }
 
     resetForm = () => {
@@ -53,6 +55,7 @@ export default class EmailCompose extends React.Component {
                  <button className="close-button" onClick={this.props.onCompose}>X</button>
                 </div>
                 <form onSubmit={this.sendEmail}>
+                    <input autoComplete="off" value={this.state.from} className="compose-subject" type="text" name='from' placeholder={'from'} onChange={this.handleChange} />
                     <input autoComplete="off" value={this.state.subject} className="compose-subject" type="text" name='subject' placeholder={'subject'} onChange={this.handleChange} />
                     <textarea autoComplete="off" value={this.state.body} className="compose-body" type="text" name='body' placeholder={'Enter your Message'} onChange={this.handleChange}> </textarea>
                     <button className="send-button" >SEND</button>

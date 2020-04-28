@@ -16,7 +16,7 @@ body {
 }
 
 .active {
-  color: goldenrod;
+  border-bottom: beige 2px solid;
 }
 
 .far {
@@ -25,18 +25,23 @@ body {
 .app-header {
   /* background-color: #a6e89f; */
   margin: 0;
+  margin-bottom: 5px;
 }
 .app-nav ul {
   display: flex;
-  justify-content: space-around;
 }
 .app-nav li {
   list-style: none;
+  margin-left: 10px;
 }
 .app-nav a {
   font-family: Playfair;
-  color: white;
-  font-size: 2.5em;
+  color: beige;
+  font-size: .8em;
+}
+
+.app-nav li:hover{
+  box-shadow: 0 4px 4px rgba(255, 251, 251, 0.4);
 }
 
 
@@ -50,7 +55,7 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #e4e1e1; 
   border-radius: 10px;
 
 }

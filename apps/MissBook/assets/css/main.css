@@ -4,7 +4,11 @@ body {
 }
 .link {
   text-decoration: none;
-  color: black;
+  color: beige;
+}
+
+.details-book-container{
+  color: beige;
 }
 
 .header-app {
@@ -24,7 +28,7 @@ body {
 .nav-bar ul {
   display: flex;
   font-size: x-large;
-  color: black;
+  color: beige;
   padding: 0;
 }
 .nav-bar li {
@@ -233,7 +237,7 @@ body {
 }
 .review-form textarea {
   font-size: 0.9em;
-  border: 1px solid black;
+  border: 1px solid beige;
   padding: 5px;
   margin: 10px 0;
 }
