@@ -18,7 +18,7 @@
   text-shadow: 2px 2px 1px black;
 }
 
-.misKeep-title img{
+.misKeep-title img {
   width: 1.2em;
 }
 
@@ -31,6 +31,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .notes-view {
@@ -99,4 +100,10 @@
   background-size: 75%;
   width: 35px;
   height: 35px;
+}
+
+@media screen and (max-width: 600px) {
+  .add-note {
+    width: 95%;
+  }
 }
