@@ -13,7 +13,6 @@ export default class NotesView extends React.Component {
 
     componentDidMount() {
         this.getNotes()
-
     }
 
     getNotes = (filter = null) => {

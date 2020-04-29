@@ -31,7 +31,7 @@ export class App extends React.Component {
                 <main>
                     {/* <UserMsg /> */}
                     <Switch>
-                        <Route component={EditNote} path="/keep/:idNote" />
+                        <Route component={EditNote} history={history} path="/keep/:idNote" />
                         <Route component={MissKeep} history={history} path="/keep" />
                         <Route component={EmailDetails} history={history} path="/email/:theMailId" />
                         <Route component={MisterEmail} history={history} path="/email" />
