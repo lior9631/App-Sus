@@ -10,11 +10,11 @@ var gNotes = [
         type: "NoteText",
         isPinned: false,
         info: {
-            title: 'My Text',
-            txt: "Fullstack Me Baby!"
+            title: 'What!!!!!!!',
+            txt: "rem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet justo non eros pharetra gravida. Nam tincidunt, mauris sed tempus pretium, turpis nunc ultricies quam"
         },
         style: {
-            backgroundColor: "white"
+            backgroundColor: "#cbf0f8"
         }
     },
     {
@@ -22,9 +22,8 @@ var gNotes = [
         type: "NoteImg",
         isPinned: true,
         info: {
-            title: 'My Image',
+            title: 'The Sunset',
             url: "https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-            txt: "Me playing Mi"
         },
         style: {
             backgroundColor: "#aecbfa"
@@ -32,14 +31,26 @@ var gNotes = [
     },
     {
         id: Utils.makeId(12),
+        type: "NoteImg",
+        isPinned: true,
+        info: {
+            title: 'Hello friend',
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJWgWnhcfvd4uWmRZXtVwh4Lgam1_9qp-ZSd6UG7HU0Ol5biVX&usqp=CAU",
+        },
+        style: {
+            backgroundColor: "#ccff90"
+        }
+    },
+    {
+        id: Utils.makeId(12),
         type: "NoteTodos",
         isPinned: false,
         info: {
-            title: 'Todod',
-            label: "How was it:",
+            title: 'What i need to do',
             todos: [
-                { txt: "Do that", doneAt: null },
-                { txt: "Do this", doneAt: 187111111 }
+                { txt: "Buy milk" },
+                { txt: "To do sprint" },
+                { txt: "Go to sleep" }
             ]
         },
         style: {
