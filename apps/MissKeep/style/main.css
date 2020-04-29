@@ -3,17 +3,32 @@
 @import url(./cmps/addNote.css);
 @import url(./cmps/searchNote.css);
 
+.misKeep-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 60px;
+  text-decoration: underline;
+  color: #7c795d;
+  font-family: "Trocchi", serif;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 30px 0 40px;
+  text-shadow: 2px 2px 1px black;
+}
+.misKeep-title img{
+  width: 1.2em;
+}
 .container-notes-list {
   display: flex;
   flex-direction: column;
 }
 
 .note-list {
-  /* columns: 310px 10;
-  column-gap: 20px; */
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .notes-view {
@@ -30,13 +45,12 @@
   flex: 1 auto;
   position: relative;
   max-width: 300px;
+  min-width: 100px;
   padding: 10px;
   border: 2px solid black;
   border-radius: 5px;
   margin: 20px;
   text-align: center;
-
-  /* break-inside: avoid; */
 }
 
 .note p {

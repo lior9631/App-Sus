@@ -31,18 +31,13 @@ export default class NotesView extends React.Component {
 
         return (
             <React.Fragment>
-                <section>
-
-                    <header>
+                <section className="notes-view">
                         <Search getNotes={this.getNotes} />
-                    </header>
-                    <main>
                         <AddNote getNotes={this.getNotes} isEditNote={false} />
                         <section className="container-notes-list">
                             {notes &&
                                 <NotesList notes={notes} getNotes={this.getNotes} />}
                         </section>
-                    </main>
                 </section>
             </React.Fragment>
         )

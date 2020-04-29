@@ -3,6 +3,8 @@ import KeepService from '../keepServices/keepService.js'
 import InfoFormElement from './InfoFormElement.jsx'
 import Colors from './Colors.jsx'
 
+const { Link } = ReactRouterDOM
+
 
 export default class AddNote extends React.Component {
 
@@ -23,8 +25,12 @@ export default class AddNote extends React.Component {
         console.log(this.props.isEditNote)
         console.log('this.props.note', this.props.note)
         if (this.props.isEditNote) {
-            this.setState({ note: this.props.note }, () => { console.log('state:', this.state) })
+            this.resetEditNote()
         }
+    }
+
+    resetEditNote = () => {
+        this.setState({ note: this.props.note }, () => { console.log('state:', this.state) })
     }
 
     changeType = (type) => {
@@ -42,6 +48,13 @@ export default class AddNote extends React.Component {
         this.props.getNotes()
     }
 
+    editedNote = () => {
+        const note = this.state.note
+        KeepService.deleteNote(note.id)
+        KeepService.addNote(note)
+        this.props.history.push('/keep')
+    }
+
     clearForm = () => {
         const note = {
             type: 'NoteText',
@@ -55,8 +68,9 @@ export default class AddNote extends React.Component {
                 backgroundColor: 'white'
             }
         }
-        this.setState({ note }, () => { console.log(this.state) })
+        this.setState({ note })
     }
+
     handleChange = ({ target }) => {
         const field = target.name
         var value = target.value
@@ -109,7 +123,7 @@ export default class AddNote extends React.Component {
         }
         return (
             <section className="add-note" style={style}>
-                <form onSubmit={this.addNote}>
+                <form onSubmit={isEditNote ? this.editedNote : this.addNote}>
                     <section className="add-note-top">
                         <div>
                             <button className="btn-pin-note-add" onClick={this.pinNote} type="button" style={pinStyle}></button>
@@ -132,10 +146,14 @@ export default class AddNote extends React.Component {
                                 </div>
                             </div>
                             <div className="actions-btn">
-                                <button className="btn-clear" type="button" onClick={this.clearForm}><img src="../../assets/img/clear.png" />clear</button>
+                                {isEditNote ?
+                                    <button className="btn-clear" type="button" onClick={this.resetEditNote}><img src="../../assets/img/reset.png" />Reset</button> :
+                                    <button className="btn-clear" type="button" onClick={this.clearForm}><img src="../../assets/img/clear.png" />Clear</button>
+                                }
                                 <button className="btn-submit" type="submit" ><img src="../../assets/img/ok.png" />OK</button>
                             </div>
                         </div>
+                        {isEditNote && <Link className="btn-cancel" type="button" to={'/keep'}><img src="../../assets/img/clear.png" />Cancel</Link>}
                     </section>
                 </form>
             </section>
