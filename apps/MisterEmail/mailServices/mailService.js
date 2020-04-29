@@ -144,7 +144,6 @@ function save(mailToSave) {
 
     savedMail = _createMail(mailToSave.from, mailToSave.subject, mailToSave.body , false , true)
     gMails.push(savedMail)
-    console.log('gmails', gMails)
 
     storageService.store(STORAGE_KEY, gMails)
 
@@ -160,7 +159,6 @@ function getById(id) {
 function query(filterBy) {
     
     var mails = gMails.filter(mail => !mail.isDelete)
-    console.log('mailsbeforefilterby' , mails)
     if (filterBy) {
         var { words, isRead, notRead } = filterBy
         mails = mails.filter(mail => (mail.subject.includes(words) || mail.body.includes(words)))
@@ -195,18 +193,14 @@ function remove(mailId) {
 function filterByStar() {
     let mails = gMails;
     mails = mails.filter(mail => mail.isDelete === false)
-    console.log('firstFilter', mails)
 
     mails = mails.filter(mail => mail.isStar === true)
-    console.log('second', mails)
     return Promise.resolve(mails)
 }
 
 function filterByTrash() {
     let mails = gMails;
-    console.log('before filter', mails)
     mails = mails.filter(mail => mail.isDelete === true)
-    console.log('after filter', mails)
 
     return Promise.resolve(mails)
 }
