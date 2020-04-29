@@ -4,13 +4,14 @@ import EmailStatus from '../apps/MisterEmail/cmps/EmailStatus.jsx'
 import EmailFilter from '../apps/MisterEmail/cmps/EmailFilter.jsx'
 import EmailCompose from '../apps/MisterEmail/cmps/EmailCompose.jsx'
 
+import { eventBus } from '../services/eventBusService.js'
+
 export default class MisterEmail extends React.Component {
 
     state = {
         mails: null,
         filterBy: null,
-        onCompose: false,
-        starsFilter: false
+        onCompose: false
     }
     componentDidMount() {
         this.getEmails()
@@ -20,8 +21,6 @@ export default class MisterEmail extends React.Component {
         mailServices.query(this.state.filterBy)
             .then(data => {
                 this.setState({ mails: data })
-                console.log('data', this.state.mails)
-
             })
     }
 
@@ -37,36 +36,67 @@ export default class MisterEmail extends React.Component {
         mailServices.setStar(id).then(this.getEmails())
 
     }
-    filterStars = (ev) => {
-        let filterBy = this.state.filterBy
-        let trueFalse = (!this.state.starsFilter) ? true : false
-        ev.target.classList.toggle('yellow')
-        mailServices.filterByStar(trueFalse, filterBy)
-            .then(data => {
-                this.setState({ mails: data }, this.setState({ starsFilter: trueFalse }))
-                return data
-            })
-
-    }
+    
 
     setUnRead = (id) => {
         mailServices.setUnRead(id)
-            .then(this.getEmails())
+            .then(() => {
+                this.getEmails()
+                // eventBus.emit('changeBar', this.state.mails)
+            })
     }
 
     setRead = (id) => {
         mailServices.setRead(id)
-            .then(this.getEmails())
-
+            .then(() => {
+                this.getEmails();
+                // eventBus.emit('changeBar', this.state.mails)
+            })
     }
 
     removeMail = (id) => {
+        mailServices.sendToTrash(id)
+        .then(() =>{
+            this.getEmails();
+                // eventBus.emit('changeBar', this.state.mails)
+        })
+        
 
 
-        mailServices.remove(id)
-            .then(this.getEmails())
+
+        // mailServices.remove(id)
+        //     .then(this.getEmails())
 
     }
+    filterStars = () => {
+        mailServices.filterByStar()
+            .then(mails => {
+                this.setState({ mails})
+            })
+
+    }
+
+    setInbox = () =>{
+        mailServices.bringAllMails()
+        .then(mails => this.setState({mails}))
+    }
+
+    filterTrash = () => {
+        mailServices.filterByTrash()
+            .then(mails => {
+                this.setState({ mails})
+            })
+    }
+
+    filterSent = () =>{
+        mailServices.filterBySent()
+        .then(mails => this.setState({mails}))
+    }
+
+
+
+
+
 
 
     render() {
@@ -83,7 +113,11 @@ export default class MisterEmail extends React.Component {
                             <div onClick={this.toggleCompose} className="compose-icon"></div>
                             <p onClick={this.toggleCompose} className="compose-paragraph">Compose</p>
                         </div>
-                        <div onClick={(ev) => this.filterStars(ev)} className="far fa-star"> Stared</div>
+                        <div onClick={this.setInbox} className="fas fa-inbox nav-select"> Inbox</div>
+                        <div onClick={this.filterStars} className="far fa-star"> Starred</div>
+                        <div onClick={this.filterSent} className="fas fa-paper-plane nav-select"> Sent</div>
+                        <div onClick={this.filterTrash} className="far fa-trash nav-select"> Trash</div>
+
 
 
                         {mails && <EmailStatus mails={mails} />}

@@ -1,43 +1,32 @@
-export default class EmailStatus extends React.Component {
+import { eventBus } from '../../../services/eventBusService.js'
 
-    state = {
-        mails: null,
-        precent: null
+export default function EmailStatus(props) {
+
+    function showStatus() {
+        // var mails = this.props.mails;
+        const readingMails = props.mails.filter(mail => !mail.isDelete && mail.isRead)
+
+        if(props.mails.length != 0){
+        // const readingMails = mails.filter(mail => mail.isRead === true)
+        var precent = parseInt((readingMails.length / props.mails.length) * 100);
+        }else precent = 0
+
+        
+
+        return precent
     }
 
 
-    componentDidMount() {
-
-        this.setState({ mails: this.props.mails }, this.showStatus)
-
+    const pStyle = {
+        width: `${showStatus()}%`
     }
-
-    showStatus = () => {
-        var mails = this.state.mails;
-        const readingMails = mails.filter(mail => mail.isRead === true)
-        var precent =parseInt((readingMails.length / mails.length) * 100) ;
-
-        this.setState({ precent }, () => { console.log(this.state.precent) })
-
-
-
-    }
-
-
-    render() {
-        const { precent } = this.state
-        const pStyle = {
-            width: `${this.state.precent}%`
-        }
-        return (
-
-            <section className="status-bar">
-                <div className="full-width" className="grey-status"></div>
-                <div style={pStyle} className="color-status"></div>
-                <div className="the-nubmer">{precent}%</div>
-            </section>
-        )
-    }
-
-
+    return (
+        <section className="status-bar">
+            <div className="full-width" className="grey-status"></div>
+            <div style={pStyle} className="color-status"></div>
+            <div className="the-nubmer">{showStatus()}%</div>
+        </section>
+    )
 }
+
+

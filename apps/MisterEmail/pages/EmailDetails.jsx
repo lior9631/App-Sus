@@ -15,7 +15,6 @@ export default class EmailDetails extends React.Component {
         const id = this.props.match.params.theMailId
         mailService.getById(id)
             .then(mail => {
-                console.log('GOT MAIL', mail);
                 this.setState({ mail }, this.putRead(id))
             })
     }
@@ -27,7 +26,6 @@ export default class EmailDetails extends React.Component {
     removeMail = () => {
         mailService.remove(this.state.mail.id)
             .then(() => {
-                console.log('mail was removed');
                 this.props.history.push('/email')
             })
             .catch(err => {

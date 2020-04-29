@@ -8,7 +8,7 @@
   z-index: 1;
   cursor: pointer;
 }
-.addNote-container {
+.editNote-container {
   display: flex;
   justify-content: center;
   position: fixed;
@@ -17,14 +17,48 @@
   width: 50%;
   /* background-color: deepskyblue; */
   transform: translate(-50%);
+}
+.editNote-container .add-note {
+  font-size: 18px;
+}
+
+.editNote-container .add-note form {
+  height: 200px;
+  cursor: default;
+}
+.editNote-container .add-note textarea {
+  max-height: 100px;
+  max-width: 98%;
+}
+
+.editNote-container .types button {
+  margin: 0.6em;
+  width: 35px;
+  height: 35px;
+}
+.editNote-container .colors-plate {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  z-index: 1;
+  bottom: 10px;
+  right: 158px;
+  width: 119px;
+  cursor: default;
+}
+
+.editNote-container .colors-plate button {
+  width: 27px;
+  height: 27px;
 
 }
-.addNote-container .add-note form {
-  margin: 0 auto;
-  cursor: default;
-  width: 96%;
-  height: 300px
-}
-.addNote-container textarea{
-  
-}
+
+ .editNote-container .btn-note-background {
+  width: 35px;
+  height: 35px;
+ }
+
+ .editNote-container .btn-note-background {
+  width: 35px;
+  height: 35px;
+ }

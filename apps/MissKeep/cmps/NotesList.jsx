@@ -12,12 +12,12 @@ export default class NotesList extends React.Component {
         const { pinNotes } = this.state
         return (
             <React.Fragment>
-                <section className="note-list">
+                <article className="note-list">
                     {notes.filter(note => note.isPinned).map(note => <Note key={note.id} note={note} getNotes={getNotes} />)}
-                </section>
-                <section className="note-list">
+                </article>
+                <article className="note-list">
                     {notes.filter(note => !note.isPinned).map(note => <Note key={note.id} note={note} getNotes={getNotes} />)}
-                </section>
+                </article>
                 {/* <section className="note-list">
                     {notes.filter(note => note.isPinned).map(note => <Note key={note.id} note={note} getNotes={getNotes} />)}
                     {notes.filter(note => !note.isPinned).map(note => <Note key={note.id} note={note} getNotes={getNotes} />)}

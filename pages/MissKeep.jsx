@@ -10,7 +10,7 @@ export default class MissKeep extends React.Component {
     render() {
         return (
             <section>
-                {/* <EditNote /> */}
+                
                 <header>
                     <h1>MissKeep</h1>
                 </header>

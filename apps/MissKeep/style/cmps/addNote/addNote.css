@@ -1,0 +1,172 @@
+.add-note {
+  margin-block-start: 5px;
+  font-size: 16px;
+  width: 32em;
+}
+.add-note form {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.add-note input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 5px 5px 10px;
+  font-size: 1em;
+}
+.add-note textarea {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-size: 1em;
+}
+.add-note input[name="title"] {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.add-note button {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 90%;
+}
+.panel-btns {
+  position: relative;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+}
+.types {
+  margin-inline-end: 0.8em;
+}
+.types button {
+  margin: 0.6em;
+  width: 1.7em;
+  height: 1.7em;
+  padding: 0;
+  background-color: transparent;
+  border: transparent;
+  font-weight: bold;
+}
+
+.box-btns {
+  display: flex;
+}
+
+.btn-text {
+  background-image: url(../../../../../assets/img/txt.png);
+}
+
+.btn-img {
+  background-image: url(../../../../../assets/img/img.png);
+}
+
+.btn-video {
+  background-image: url(../../../../../assets/img/video.png);
+}
+
+.btn-list {
+  background-image: url(../../../../../assets/img/list.png);
+}
+
+.btn-note-background {
+  background-image: url(../../../../../assets/img/colors.png);
+  
+  width: 1.8em;
+  height: 1.8em;
+  padding: 0;
+  background-color: transparent;
+  border: transparent;
+}
+
+.btn-submit {
+  color: green;
+  position: relative;
+  top: 2px;
+  margin-inline-end: 20px;
+}
+
+.btn-submit img {
+  margin-inline-end: 1px;
+  top: 1px;
+  left: 2px;
+  height: 1em;
+  width: 1em;
+}
+
+.actions-btn {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions-btn button {
+  align-self: flex-end;
+  display: flex;
+  font-size: 1.35em;
+  font-weight: bold;
+  padding: 0;
+  margin-block-end: 5px;
+  background-color: transparent;
+  border: transparent;
+}
+
+.btn-clear {
+  display: flex;
+  justify-content: center;
+  color: brown;
+  margin-inline-end: 15px;
+}
+.btn-clear img {
+  position: relative;
+  top: 2px;
+  height: 1em;
+  width: 1em;
+}
+
+.btn-pin-note-add {
+  background-image: url(../../../../../assets/img/pin.png);
+  width: 2em;
+  height:  2em;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 3px;
+  margin: 5px;
+}
+
+.colors{
+    display: flex;
+    align-items: center;
+}
+
+.colors-plate {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 10px;
+  right: 255px;
+  width: 6em;
+  padding: 5px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.colors-plate button {
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid black;
+  margin: .1em .1em;
+}

@@ -19,7 +19,6 @@ export default class NotesView extends React.Component {
     getNotes = (filter = null) => {
         KeepService.query(filter)
             .then(notes => {
-                console.log('getNote:', notes)
                 this.setState({ notes });
             })
             .catch(err => {
@@ -38,7 +37,7 @@ export default class NotesView extends React.Component {
                         <Search getNotes={this.getNotes} />
                     </header>
                     <main>
-                        <AddNote getNotes={this.getNotes} />
+                        <AddNote getNotes={this.getNotes} isEditNote={false} />
                         <section className="container-notes-list">
                             {notes &&
                                 <NotesList notes={notes} getNotes={this.getNotes} />}

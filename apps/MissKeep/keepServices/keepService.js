@@ -54,7 +54,8 @@ export default {
     addNote,
     pinNote,
     getPintNotes,
-    deleteNote
+    deleteNote,
+    getNoteById
 }
 
 
@@ -106,7 +107,8 @@ function deleteNote(idNote) {
 }
 
 function getNoteById(idNote) {
-    return gNotes.find(note => note.id === idNote)
+    const note = gNotes.find(note => note.id === idNote)
+    return note ? Promise.resolve(note) : Promise.reject('Note not available')
 }
 
 function getNoteIdxById(idNote) {
