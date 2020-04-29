@@ -1,0 +1,19 @@
+.searchNote-form {
+  font-size: 18px;
+}
+
+.searchNote-form * {
+  padding: 8px 10px;
+  font-weight: bold;
+  font-size: 1em;
+  border: 1px solid black;
+  border-radius: 3px;
+      background-color: #d1ff02;
+  box-shadow: 0px 1px 0px 0px black;
+}
+.searchNote-form input {
+  margin-inline-end: 5px;
+}
+.searchNote-form select {
+
+}
