@@ -1,10 +1,35 @@
 /* @import url("./cmps/note/style.css"); */
 @import url(./EditNote/EditNote.css);
-@import url(./cmps/addNote/addNote.css);
+@import url(./cmps/addNote.css);
+@import url(./cmps/searchNote.css);
+
+.container-notes-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-list {
+  /* columns: 310px 10;
+  column-gap: 20px; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.notes-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 auto;
   position: relative;
-  width: 300px;
+  max-width: 300px;
   padding: 10px;
   border: 2px solid black;
   border-radius: 5px;
@@ -12,6 +37,10 @@
   text-align: center;
 
   /* break-inside: avoid; */
+}
+
+.note p {
+  word-wrap: break-word;
 }
 
 .note img {
@@ -54,20 +83,4 @@
   background-size: 75%;
   width: 35px;
   height: 35px;
-}
-
-.note p {
-  word-wrap: break-word;
-}
-
-.container-notes-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.note-list {
-  /* columns: 310px 10;
-  column-gap: 20px; */
-  display: flex;
-  flex-wrap: wrap;
 }
