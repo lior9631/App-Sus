@@ -63,23 +63,23 @@
 }
 
 .btn-text {
-  background-image: url(/assets/img/txt.png);
+  background-image: url(assets/img/txt.png);
 }
 
 .btn-img {
-  background-image: url(/assets/img/img.png);
+  background-image: url(assets/img/img.png);
 }
 
 .btn-video {
-  background-image: url(/assets/img/video.png);
+  background-image: url(assets/img/video.png);
 }
 
 .btn-list {
-  background-image: url(/assets/img/list.png);
+  background-image: url(assets/img/list.png);
 }
 
 .btn-note-background {
-  background-image: url(/assets/img/colors.png);
+  background-image: url(assets/img/colors.png);
 
   width: 1.8em;
   height: 1.8em;
@@ -137,7 +137,7 @@
 }
 
 .btn-pin-note-add {
-  background-image: url(/assets/img/pin.png);
+  background-image: url(assets/img/pin.png);
   width: 2em;
   height: 2em;
   border: 2px solid black;
