@@ -21,7 +21,12 @@ export default function InfoFormElement(props) {
         case 'NoteTodos':
             return (
                 <React.Fragment>
-                    <button nameClass="btn-add-todo" onClick={addTodo}>+Add todo</button>
+                    {/* <div className="todos-info">
+                        {note.info.todos.map(todo => {
+                            <input type="text"  />
+                        })}
+                    </div>
+                    <button nameClass="btn-add-todo" type="button" onClick={addTodo}>+Add todo</button> */}
                 </React.Fragment>
             )
     }

@@ -21,6 +21,7 @@ export default function NoteContent(props) {
             )
         case 'NoteVideo':
             return (
+                
                 <NoteVideo info={info} />
             )
     }

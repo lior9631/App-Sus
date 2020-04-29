@@ -2,10 +2,6 @@ export default class Colors extends React.Component {
 
     onColor(color) {
         this.props.changeColor(color)
-        // this.props.setState(prevState => ({
-        //     style: { ...prevState.style, backgroundColor: color }
-        // }))
-
     }
 
     render() {
