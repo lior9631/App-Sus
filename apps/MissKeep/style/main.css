@@ -76,7 +76,7 @@
 }
 
 .btn-pin-note {
-  background-image: url(/../assets/img/pin.png);
+  background-image: url(../../../assets/img/pin.png);
   left: -15px;
   top: -15px;
   background-color: white;
@@ -84,7 +84,7 @@
 }
 
 .btn-del-note {
-  background-image: url(/../assets/img/delete.png);
+  background-image: url(../../../assets/img/delete.png);
   left: 25px;
   top: -15px;
   background-color: #d11e1e;
@@ -92,7 +92,7 @@
 }
 
 .note-edit-link {
-  background-image: url(/../assets/img/edit.png);
+  background-image: url(../../../assets/img/edit.png);
   top: -15px;
   right: -16px;
   background-color: forestgreen;
