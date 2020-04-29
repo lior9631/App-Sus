@@ -164,6 +164,10 @@
   border-radius: 5px;
 }
 .colors-plate button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;

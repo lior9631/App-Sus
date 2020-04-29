@@ -11,9 +11,7 @@
       background-color: #d1ff02;
   box-shadow: 0px 1px 0px 0px black;
 }
+
 .searchNote-form input {
   margin-inline-end: 5px;
-}
-.searchNote-form select {
-
 }
