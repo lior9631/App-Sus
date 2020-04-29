@@ -9,7 +9,7 @@ export default class NavBar extends React.Component {
         return (
             <nav className="app-nav">
                 <ul>
-                    <li><img src="../assets/imgs/horseshoe.png" alt="" className="header-logo"/></li>
+                    <li><img src="assets/imgs/horseshoe.png" alt="" className="header-logo"/></li>
                     <li><NavLink exact to="/">Home</NavLink></li>
                     <li><NavLink exact to="/email">Mister Email</NavLink></li>
                     <li><NavLink exact to="/keep">Miss Keep</NavLink></li>
