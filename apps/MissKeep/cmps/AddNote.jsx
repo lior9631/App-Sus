@@ -2,13 +2,10 @@ import KeepService from '../keepServices/keepService.js'
 
 import InfoFormElement from './InfoFormElement.jsx'
 import Colors from './Colors.jsx'
-<<<<<<< HEAD
 import { eventBus } from '../../../services/eventBusService.js'
-=======
 
 import EditTodosList from './EditTodosList.jsx'
 
->>>>>>> 935647fbf8c0821d066b2e8c3ce17984a7fd532f
 const { Link } = ReactRouterDOM
 
 const history = History.createBrowserHistory()

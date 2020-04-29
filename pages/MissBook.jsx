@@ -15,7 +15,7 @@ export default class MissBook extends React.Component {
   componentDidMount() {
     this.loadBooks()
 
-    document.body.style.backgroundImage = "linear-gradient(to right top, #877042, #9a8450, #ad985f, #c1ad6f, #d4c37f)";
+    // document.body.style.backgroundImage = "linear-gradient(to right top, #877042, #9a8450, #ad985f, #c1ad6f, #d4c37f)";
   }
 
   loadBooks = () => {

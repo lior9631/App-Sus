@@ -355,7 +355,7 @@ label {
 .the-nubmer {
   position: relative;
   z-index: 3;
-  color: beige;
+  color: rgb(255, 255, 255);
 }
 
 .fa-inbox{
@@ -363,7 +363,7 @@ label {
 }
 
 .side-nav .fa-star {
-  color: beige;
+  color: white;
   padding: 5px 20px 5px 20px;
   cursor: pointer;
   font-family: fontawesome;
@@ -381,7 +381,7 @@ label {
 
 /* **************helpers nav selectors**************** */
 .nav-select {
-  color: beige;
+  color: white;
   margin-bottom: 10px;
   padding: 5px 20px 5px 20px;
   cursor: pointer;

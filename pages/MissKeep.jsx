@@ -14,9 +14,8 @@ export default class MissKeep extends React.Component {
     }
 
     componentDidMount() {
-<<<<<<< HEAD
         // document.body.style.backgroundImage = "url(assets/img/notes-Background.jpg)";
-        document.body.style.backgroundImage = "url(assets/imgs/925.jpg)";
+        // document.body.style.backgroundImage = "url(assets/imgs/925.jpg)";
         const str = this.props.location.search;
 
         if (str.length) {
@@ -28,22 +27,6 @@ export default class MissKeep extends React.Component {
         }
 
 
-=======
-        document.body.style.backgroundImage = "url(assets/img/notes-Background.jpg)";
-
-
-        const str = this.props.location.search;
-        const subject = this.getSubject(str)
-        const body = this.getBody(str)
-        // if (str) {
-        //     console.log('subject', subject)
-        //     console.log('body', body)
-        //     const note={
-                
-        //     }
-
-        // }
->>>>>>> 935647fbf8c0821d066b2e8c3ce17984a7fd532f
     }
 
     getSubject = (str) => {
@@ -65,11 +48,11 @@ export default class MissKeep extends React.Component {
         return (
             <section>
                 <header>
-                    <h1 className="misKeep-title"><img src="assets/img/Paper-notes.svg" alt="notes" />Miss Keep</h1>
+                    <h1 className="misKeep-title"><img src="../assets/img/Paper-notes.svg" alt="notes" />Miss Keep</h1>
                 </header>
                 <main>
+
                     <section>
-                        
                         <NotesView />
                     </section>
                 </main>
