@@ -3,3 +3,165 @@
 
 
 
+@media screen and (max-width: 640px){
+
+    /* remove Read\not read filter  */
+
+#isRead{
+    display: none;
+
+}
+
+.isRead{
+    display: none;
+}
+
+#notRead{
+    display: none;
+}
+
+.notRead{
+    display: none;
+}
+
+/* ******************************** */
+
+.search-input{
+    padding-right: 150px !important;
+    margin-left: 25px;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.mail-container{
+    max-height: max-content;
+    width: 95% !important;
+    margin-right: 0 !important;
+    border-radius: 5px !important;
+}
+
+.container{
+    flex-wrap: wrap;
+    position: relative;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent !important;
+}
+
+/* del icons from list */
+
+.envelope{
+    display: none !important;
+}
+
+.preview-icons  .fa-trash{
+    display: none !important;
+}
+
+.preview-words{
+    flex-direction: column;
+    font-size: 12px;
+    justify-content: flex-start;
+}
+
+.date{
+    font-size: 10px;
+    display: inline;
+    
+}
+
+.preview-item h3{
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+/* ***************details*************
+ */
+
+ .details{
+     width: 75% !important;
+ }
+
+
+
+
+
+ /* sidenav */
+
+.side-nav{
+    flex-wrap: wrap;
+    flex-direction: row;
+    order: -1;
+    position: absolute;
+    display: grid !important;
+    margin-left: 0;
+    margin-right: 250px;
+    grid-template-columns: 80px 80px 80px  ;
+    grid-template-rows: 50px 50px  ;
+    
+}
+
+.add-mail{
+    grid-area: 1 / 1 / 2 / 3 ;
+}
+
+.status-bar{
+  display: none;
+}
+
+.fa-inbox{
+    font-size: 14px;
+    margin-top: 0px !important;
+}
+
+
+
+
+
+/* compose  */
+
+.compose{
+    left: 0 !important;
+
+}
+
+.compose-header{
+    width: 200px !important;
+}
+
+.compose-subject{
+    width: 230px !important;
+}
+
+.compose-body{
+    width: 228px !important;
+    padding-bottom: 200px !important;
+}
+
+.send-button{
+width: 240px !important;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+.remove-mail {
+    left: 10%;
+    outline: none;
+    transition: all ease .4s;
+    border-radius: 10px;
+    font-weight: 700;
+    height: 30px;
+    width: 100px;
+    background: black;
+    border: 1px solid black;
+    color: white;
+    margin-left: 20px;
+
+
+}
+
+.remove-mail:hover {
+    transition: opacity 0.5s;
+    opacity: 0.55;
+}
+
+
+
+.details ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details h2{
+    text-decoration: underline solid rgba(128, 128, 128, 0.356);
+}
+
+
+.details-container {
+    font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.561);
+    height: 10em;
+    width: 80%;
+    border-radius: 20px;
+    color: rgb(36, 36, 36);
+    font-family: serif;
+    font-size: 1.5em;
+    padding: 20px 10px 20px 10px;
+    margin: 10px 0px 3em 0px;
+}
+
+.details-footer {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.detail-back {
+    /* font-weight: bold;
+    background-color: rgb(22, 20, 20);
+    color: rgb(236, 236, 236);
+    border: 2px solid rgb(136, 136, 136) */
+/* 
+    position: absolute;
+    left: 10%;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+    background-color: rgb(10, 10, 20);
+    color: beige; */
+
+    left: 10%;
+    outline: none;
+    transition: all ease .4s;
+    border-radius: 10px;
+    font-weight: 700;
+    height: 30px;
+    width: 100px;
+    background: black;
+    border: 1px solid black;
+    color: white;
+}
+
+.detail-back:hover {
+    transition: opacity 0.5s;
+    opacity: 0.55;
+}
+
+.detail-back:hover::before{
+    content: "Go ";
+}
