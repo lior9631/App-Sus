@@ -1,5 +1,4 @@
-
-
+import EditTodo from './EditTodo.jsx'
 
 export default function InfoFormElement(props) {
 
@@ -21,7 +20,7 @@ export default function InfoFormElement(props) {
         case 'NoteTodos':
             return (
                 <React.Fragment>
-                    <button nameClass="btn-add-todo" onClick={addTodo}>+Add todo</button>
+                    <button nameClass="btn-add-todo" type="button" onClick={addTodo}>+Add todo</button>
                 </React.Fragment>
             )
     }

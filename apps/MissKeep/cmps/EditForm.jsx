@@ -19,7 +19,6 @@ export default class EditForm extends React.Component {
                                 <button className="btn-video" type="button" onClick={() => { this.changeType('NoteVideo') }}></button>
                             </div>
                             <div className="colors">
-                                {/* <Colors setState={this.setState} /> */}
                                 {isColorsShow && <Colors changeColor={this.changeColor} onColorPlate={this.onColorPlate} />}
                                 <button className="btn-note-background" type="button" onClick={this.onColorPlate}></button>
                             </div>

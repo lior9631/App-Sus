@@ -2,8 +2,16 @@ import KeepService from '../keepServices/keepService.js'
 
 import InfoFormElement from './InfoFormElement.jsx'
 import Colors from './Colors.jsx'
+<<<<<<< HEAD
 import { eventBus } from '../../../services/eventBusService.js'
+=======
+
+import EditTodosList from './EditTodosList.jsx'
+
+>>>>>>> 935647fbf8c0821d066b2e8c3ce17984a7fd532f
 const { Link } = ReactRouterDOM
+
+const history = History.createBrowserHistory()
 
 
 export default class AddNote extends React.Component {
@@ -14,7 +22,10 @@ export default class AddNote extends React.Component {
             type: 'NoteText',
             isPinned: false,
             info: {
-                title: ''
+                title: '',
+                txt: '',
+                video: null,
+                todos: null
             },
             style: {
                 backgroundColor: 'white'
@@ -24,8 +35,6 @@ export default class AddNote extends React.Component {
 
 
     componentDidMount() {
-        console.log(this.props.isEditNote)
-        console.log('this.props.note', this.props.note)
         if (this.props.isEditNote) {
             this.resetEditNote()
         }
@@ -65,7 +74,11 @@ export default class AddNote extends React.Component {
         this.clearForm()
         this.setState(prevState => ({
             note: { ...prevState.note, type }
-        }))
+        }), () => {
+            if (this.state.note.type === 'NoteTodos') {
+                this.createTodos()
+            }
+        })
     }
 
     addNote = (ev) => {
@@ -111,21 +124,17 @@ export default class AddNote extends React.Component {
         const field = target.name
         var value = target.value
 
-        if (field === 'todos') {
-            const todo = {
-                id: this.state.todos ? this.state.todos.length : 0,
-                txt: value,
-                doneAt: null
-            }
-            var todos = this.state.todos
-            todos.push(todo)
+        console.log('onChange:', value)
+        if (this.state.note.type === 'NoteTodos') {
+            var todos = this.state.note.info.todos
+            todos[+field].txt = value
             value = todos
         }
-
         this.setState(prevState => ({
             note: { ...prevState.note, info: { ...prevState.note.info, [field]: value } }
-        }), () => { console.log(this.state.note) })
+        }))
     }
+
 
     pinNote = () => {
 
@@ -146,7 +155,29 @@ export default class AddNote extends React.Component {
     }
 
     addTodo = () => {
+        console.log('addTodo: working');
+        var todos = this.state.note.info.todos
+        todos.push(
+            {
+                txt: '',
+                doneAt: null
+            }
+        )
+        this.setState(this.state.note)
+    }
 
+    createTodos = () => {
+        this.setState(prevState => ({
+            note: { ...prevState.note, info: { ...prevState.note.info, todos: [] } }
+        }))
+    }
+
+    deleteTodo = (idx) => {
+        var todos = this.state.note.info.todos
+        todos.splice(idx, 1)
+        this.setState(prevState => ({
+            note: { ...prevState.note, info: { ...prevState.note.info, todos } }
+        }))
     }
 
     render() {
@@ -157,15 +188,17 @@ export default class AddNote extends React.Component {
         const pinStyle = {
             backgroundColor: isPinned ? '#ffd15c ' : 'white'
         }
+
         return (
-            <section className="add-note" style={style}>
+            <section className="add-note" style={style} >
                 <form onSubmit={isEditNote ? this.editedNote : this.addNote}>
                     <section className="add-note-top">
                         <div>
                             <button className="btn-pin-note-add" onClick={this.pinNote} type="button" style={pinStyle}></button>
                             <input type="text" name="title" value={info.title} onChange={this.handleChange} placeholder="Write title..." />
                         </div>
-                        <InfoFormElement type={type} note={note} handleChange={this.handleChange} />
+                        {type === 'NoteTodos' && ('todos' in info) && <EditTodosList todos={info.todos} handleChange={this.handleChange} state={this.state} deleteTodo={this.deleteTodo} />}
+                        <InfoFormElement type={type} note={note} addTodo={this.addTodo} handleChange={this.handleChange} />
                     </section>
                     <section className="add-note-bottom">
                         <div className="panel-btns">
@@ -194,5 +227,6 @@ export default class AddNote extends React.Component {
                 </form>
             </section>
         )
+
     }
 }
