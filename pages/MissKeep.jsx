@@ -14,9 +14,7 @@ export default class MissKeep extends React.Component {
     render() {
         return (
             <section>
-
                 <header>
-                    
                     <h1 className="misKeep-title"><img src="../assets/img/Paper-notes.svg" alt="notes" />Miss Keep</h1>
                 </header>
                 <main>
