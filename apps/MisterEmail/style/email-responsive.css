@@ -67,14 +67,33 @@
 
 .date{
     font-size: 10px;
-    display: inline;
+    position: absolute;
+    right: 45px;
+    top: 10px;
     
+}
+.preview-item{
+    position: relative;
+    min-height: 60px;
 }
 
 .preview-item h3{
-    font-size: 16px;
+    flex-wrap: nowrap;
+    font-size: 1px;
     margin-right: 5px;
+    visibility: hidden;
 }
+.preview-item h3::first-letter{
+    font-size: 16px;
+    text-transform: capitalize;
+    visibility: visible;
+    border-radius: 999px;
+    padding: 10px;
+    border: 1px solid rgb(75, 75, 75);
+    max-height: 20px !important;
+    max-width: 50px !important;
+}
+
 
 /* ***************details*************
  */
@@ -141,6 +160,10 @@
 
 .send-button{
 width: 240px !important;
+}
+
+.body-preview{
+    align-self: flex-start !important;
 }
 
 }
