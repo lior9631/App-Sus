@@ -7,12 +7,21 @@
   font-family: Playfair;
   src: url(../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf);
 }
+@font-face {
+  font-family: Trocchi;
+  src: url(../fonts/Trocchi/Trocchi-Regular.ttf);
+}
 
 body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
 }
 
 .active {
@@ -37,17 +46,12 @@ body {
 .app-nav a {
   font-family: Playfair;
   color: beige;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
-.app-nav li:hover{
+.app-nav li:hover {
   box-shadow: 0 4px 4px rgba(255, 251, 251, 0.4);
 }
-
-
-
-
-
 
 ::-webkit-scrollbar {
   width: 20px;
@@ -55,18 +59,16 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #e4e1e1; 
+  background: #e4e1e1;
   border-radius: 10px;
-
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background:transparent;
-
+  background: transparent;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background:  #2c3e50; 
+  background: #2c3e50;
 }

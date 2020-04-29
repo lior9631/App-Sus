@@ -23,7 +23,7 @@ export default class Search extends React.Component {
 
         const { input, type } = this.state.filter
         return (
-            <form>
+            <form className="searchNote-form">
                 <input type="text" name="input" value={input} onChange={this.handleChange} placeholder="Search note" />
                 <select name="type" value={type} onChange={this.handleChange}>
                     <option value="all">All</option>

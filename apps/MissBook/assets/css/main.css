@@ -1,57 +1,29 @@
-body {
-  margin: 0;
-  background-color: #e6e2d3;
-}
-.link {
-  text-decoration: none;
-  color: beige;
+@import url(./helpers.css);
+
+@font-face {
+  font-family: Pacifico;
+  src: url(../../../../assets/fonts/Pacifico/Pacifico-Regular.ttf);
 }
 
-.details-book-container{
-  color: beige;
-}
-
-.header-app {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #8c7257;
-  height: 100px;
-  padding: 0 80px;
-  box-shadow: inset 0 0 3px 2px #584a3b;
-  border-block-end: 3px solid #735e48;
-}
-.nav-bar {
-  display: flex;
-  align-items: center;
-}
-.nav-bar ul {
-  display: flex;
-  font-size: x-large;
-  color: beige;
-  padding: 0;
-}
-.nav-bar li {
-  list-style-type: none;
-}
-.nav-bar li:hover {
-  box-shadow: inset 0 0 3px 2px #584a3b;
-}
-
-.nav-bar .link {
+.add-book-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
-  width: 120px;
-  color: beige;
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 25px;
-  letter-spacing: 2px;
-  text-align: center;
+  background-image: url(../../../../assets/img/wood-background.jpg);
+  color: rgba(235, 196, 134, 0.863);
+  font-family: Pacifico;
+  /* font-weight: bold; */
+  font-size: 30px;
+  margin: 20px 60px 10px;
+  border: 3px solid black;
+  border-radius: 50px;
+  width: 6em;
+  padding: 10px 5px;
 }
-.nav-bar .active {
-  color: gold;
+
+.add-book-link img {
+  height: 1em;
+  margin-inline-start: 5px;
 }
 
 .book-filter {
@@ -301,16 +273,19 @@ body {
   background-color: white;
 }
 
-.books-add-list {
-  background-color: #e6e2d3;
-}
 .books-add-list li {
   background-color: #dac292;
+  padding: 10px;
   margin: 5px 0;
   list-style: none;
+  border: 1px solid #d1bd7b;
+  border-radius: 2px;
+}
+.title-book-add {
+  display: flex;
+  align-items: center;
 }
 .books-add-list ul {
-  background-color: blanchedalmond;
   padding: 0;
   width: 550px;
 }
@@ -329,20 +304,6 @@ body {
   font-size: larger;
   font-weight: bold;
   padding: 5px 10px;
-}
-
-/* HELPERS */
-
-.red {
-  color: red;
-}
-.green {
-  color: green;
-}
-
-.bold {
-  font-weight: bold;
-  margin-inline-start: 5px;
 }
 
 .userMsg {
@@ -369,4 +330,28 @@ body {
 }
 p {
   margin: 0;
+}
+
+.container-add-book form {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-form-add-book {
+  padding: 7px 10px;
+  background-color: #44be2c;
+  border: 1px solid #13a313;
+  border-radius: 3px;
+  font-size: 1em;
+  transition: background-color 400ms;
+}
+.btn-form-add-book:hover {
+  background-color: #23e423;
+}
+.container-add-book form input {
+  padding: 0 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-inline-end: 3px;
+  font-size: 1em;
 }

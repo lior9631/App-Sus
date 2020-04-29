@@ -1,17 +1,53 @@
 /* @import url("./cmps/note/style.css"); */
+@import url(./EditNote/EditNote.css);
+@import url(./cmps/addNote.css);
+@import url(./cmps/searchNote.css);
 
-img {
-  width: 100%;
+.misKeep-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 60px;
+  text-decoration: underline;
+  color: #7c795d;
+  font-family: "Trocchi", serif;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 30px 0 40px;
+  text-shadow: 2px 2px 1px black;
 }
 
-button {
-  cursor: pointer;
-  outline: none;
+.misKeep-title img{
+  width: 1.2em;
+}
+
+.container-notes-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.notes-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 auto;
   position: relative;
-  width: 300px;
+  max-width: 300px;
+  min-width: 100px;
   padding: 10px;
   border: 2px solid black;
   border-radius: 5px;
@@ -19,15 +55,18 @@ button {
   text-align: center;
 }
 
-.btn-pin-note {
-  background-image: url(../../../assets/img/pin.png);
+.note p {
+  word-wrap: break-word;
+}
+
+.note img {
+  width: 100%;
+}
+
+.btn-note {
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 90%;
-  background-color: white;
   position: absolute;
-  left: -15px;
-  top: -15px;
   width: 30px;
   height: 30px;
   border: 2px solid black;
@@ -36,173 +75,28 @@ button {
   margin: 5px;
 }
 
-.note p {
-  word-wrap: break-word;
-}
-
-.note-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-.add-note {
-  margin-block-start: 5px;
-  width: 600px;
-}
-.add-note form {
-  padding: 0 10px;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin: 5px 0;
-  /* background-color: white; */
-}
-
-.add-note input {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  padding: 5px 5px 10px;
-}
-.add-note textarea {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  max-width: 100%;
-}
-.add-note input[name="title"] {
-  font-size: 1.1em;
-  font-weight: bold;
-}
-.add-note button {
-  background-position: center;
-  background-repeat: no-repeat;
+.btn-pin-note {
+  background-image: url(../../../assets/img/pin.png);
+  left: -15px;
+  top: -15px;
+  background-color: white;
   background-size: 90%;
 }
-.panel-btns {
-  position: relative;
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 25px;
-}
-.types {
-  margin-inline-end: 10px;
-}
-.types button {
-  margin: 10px;
-  width: 22px;
-  height: 22px;
 
-  padding: 0;
-  background-color: transparent;
-  border: transparent;
-  font-weight: bold;
+.btn-del-note {
+  background-image: url(../../../assets/img/delete.png);
+  left: 25px;
+  top: -15px;
+  background-color: #d11e1e;
+  background-size: 90%;
 }
 
-.box-btns {
-  display: flex;
-}
-
-.btn-text {
-  background-image: url(../../../assets/img/txt.png);
-}
-
-.btn-img {
-  background-image: url(../../../assets/img/img.png);
-}
-
-.btn-video {
-  background-image: url(../../../assets/img/video.png);
-}
-
-.btn-list {
-  background-image: url(../../../assets/img/list.png);
-}
-
-.btn-note-background {
-  background-image: url(../../../assets/img/colors.png);
-  margin: 10px;
-  width: 25px;
-  height: 25px;
-  padding: 0;
-  background-color: transparent;
-  border: transparent;
-}
-
-.btn-submit {
-  color: green;
-}
-
-.btn-submit img {
-  position: relative;
-  top: 1px;
-  left: 2px;
-  height: 1em;
-  width: 1em;
-}
-
-.actions-btn {
-  position: relative;
-  top: 5px;
-  left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.actions-btn button {
-  align-self: flex-end;
-  display: flex;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 0;
-  margin-block-end: 5px;
-  background-color: transparent;
-  border: transparent;
-}
-
-.actions-btn img {
-  margin-inline-end: 1px;
-}
-
-.btn-close {
-  color: brown;
-}
-.btn-close img {
-  position: relative;
-  top: 2px;
-  height: 0.8em;
-  width: 0.8em;
-}
-
-.btn-pin-note-add {
-  background-image: url(../../../assets/img/pin.png);
-  width: 25px;
-  height: 25px;
-  border: 2px solid black;
-  border-radius: 50%;
-  padding: 3px;
-  margin: 5px;
-}
-
-.colors-plate {
-  display: flex;
-  flex-wrap: wrap;
-  position: absolute;
-  bottom: 10px;
-  right: 255px;
-  width: 96px;
-  padding: 5px;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 5px;
-}
-.colors-plate button {
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  border: 1px solid black;
-  margin: 2px 2px;
+.note-edit-link {
+  background-image: url(../../../assets/img/edit.png);
+  top: -15px;
+  right: -16px;
+  background-color: forestgreen;
+  background-size: 75%;
+  width: 35px;
+  height: 35px;
 }

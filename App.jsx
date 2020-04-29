@@ -11,13 +11,10 @@ import MisterEmail from './pages/MisterEmail.jsx'
 import MissKeep from './pages/MissKeep.jsx'
 import MissBook from './pages/MissBook.jsx'
 import EmailDetails from './apps/MisterEmail/pages/EmailDetails.jsx'
+import EditNote from './apps/MissKeep/pages/EditNote.jsx'
 
 
-
-
-// import { UserMsg } from '../appSus/apps/MissBook/cmps/user-msg.jsx'
-
-
+import UserMsg from './apps/MissBook/cmps/user-msg.jsx'
 import { BookDetails } from './apps/MissBook/pages/Book-details.jsx'
 import { AddBooks } from './apps/MissBook/pages/addBooks.jsx'
 
@@ -32,15 +29,16 @@ export class App extends React.Component {
                     <NavBar history={history} />
                 </header>
                 <main>
-                {/* <UserMsg /> */}
+                    {/* <UserMsg /> */}
                     <Switch>
-                        <Route component={MissKeep} path="/keep" />
+                        <Route component={EditNote} path="/keep/:idNote" />
+                        <Route component={MissKeep} history={history} path="/keep" />
                         <Route component={EmailDetails} path="/email/:theMailId" />
                         <Route component={MisterEmail} history={history} path="/email" />
                         <Route component={BookDetails} path="/books/:idBook" />
                         <Route component={MissBook} path="/books" />
                         <Route component={AddBooks} path="/addBook" />
-                        <Route component={Home} path="/" />
+                        <Route exact component={Home} path="/" />
                     </Switch>
                 </main>
             </Router>

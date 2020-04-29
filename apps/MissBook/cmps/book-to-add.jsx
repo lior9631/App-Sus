@@ -5,7 +5,7 @@ export function BookToAdd(props) {
 
         <li>
             <div className="book-to-add" >
-                <div>{book.title}</div> <button onClick={() => { onAddBook(book) }}>+</button>
+                <div className="title-book-add">{book.title}</div> <button onClick={() => { onAddBook(book) }}>+</button>
             </div>
         </li>
     )

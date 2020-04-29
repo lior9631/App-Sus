@@ -53,7 +53,9 @@ export default {
     query,
     addNote,
     pinNote,
-    getPintNotes
+    getPintNotes,
+    deleteNote,
+    getNoteById
 }
 
 
@@ -98,9 +100,15 @@ function pinNote(idNote) {
     StorageService.store(NOTES_KEY, gNotes)
 }
 
+function deleteNote(idNote) {
+    const noteIdx = getNoteIdxById(idNote)
+    gNotes.splice(noteIdx, 1)
+    StorageService.store(NOTES_KEY, gNotes)
+}
 
 function getNoteById(idNote) {
-    return gNotes.find(note => note.id === idNote)
+    const note = gNotes.find(note => note.id === idNote)
+    return note ? Promise.resolve(note) : Promise.reject('Note not available')
 }
 
 function getNoteIdxById(idNote) {
