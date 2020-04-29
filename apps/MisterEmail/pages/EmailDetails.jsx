@@ -40,6 +40,11 @@ export default class EmailDetails extends React.Component {
         this.props.history.push('/email')
     }
 
+    saveAsNote = () =>{
+        const url = `/keep?subject=${this.state.mail.subject}&body=${this.state.mail.body}`
+        this.props.history.push(url)
+    }
+
 
     render() {
         const { mail } = this.state
@@ -54,6 +59,7 @@ export default class EmailDetails extends React.Component {
             <section className="details-footer">
                 <button className="detail-back" onClick={this.goBack}>Back</button>
                 <button className="remove-mail" onClick={this.removeMail}>Delete</button>
+                <button className="keep-it-button" onClick={this.saveAsNote}>Keep it</button>
             </section>
         </section>
 

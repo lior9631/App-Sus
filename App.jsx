@@ -33,7 +33,7 @@ export class App extends React.Component {
                     <Switch>
                         <Route component={EditNote} path="/keep/:idNote" />
                         <Route component={MissKeep} history={history} path="/keep" />
-                        <Route component={EmailDetails} path="/email/:theMailId" />
+                        <Route component={EmailDetails} history={history} path="/email/:theMailId" />
                         <Route component={MisterEmail} history={history} path="/email" />
                         <Route component={BookDetails} path="/books/:idBook" />
                         <Route component={MissBook} path="/books" />

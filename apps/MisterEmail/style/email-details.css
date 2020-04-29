@@ -20,6 +20,27 @@
 }
 
 
+.keep-it-button{
+    left: 10%;
+    outline: none;
+    transition: all ease .4s;
+    border-radius: 10px;
+    font-weight: 700;
+    height: 30px;
+    width: 100px;
+    background: rgb(43, 113, 204);
+    border: 1px solid rgb(138, 174, 233);
+    color: white;
+    margin-left: 20px;
+
+
+}
+.keep-it-button:hover {
+    transition: opacity 0.5s;
+    opacity: 0.55;
+}
+
+
 
 .details ::-webkit-scrollbar-track {
     background: transparent;

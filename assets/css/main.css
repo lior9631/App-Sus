@@ -65,7 +65,8 @@ button {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: transparent;
+  background: rgb(53, 53, 53);
+  border-radius: 999px;
 }
 
 /* Handle on hover */
