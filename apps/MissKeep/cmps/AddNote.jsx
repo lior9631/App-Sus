@@ -213,13 +213,13 @@ export default class AddNote extends React.Component {
                             </div>
                             <div className="actions-btn">
                                 {isEditNote ?
-                                    <button className="btn-clear" type="button" onClick={this.resetEditNote}><img src="../../assets/img/reset.png" />Reset</button> :
-                                    <button className="btn-clear" type="button" onClick={this.clearForm}><img src="../../assets/img/clear.png" />Clear</button>
+                                    <button className="btn-clear" type="button" onClick={this.resetEditNote}><img src="assets/img/reset.png" />Reset</button> :
+                                    <button className="btn-clear" type="button" onClick={this.clearForm}><img src="assets/img/clear.png" />Clear</button>
                                 }
-                                <button className="btn-submit" type="submit" ><img src="../../assets/img/ok.png" />OK</button>
+                                <button className="btn-submit" type="submit" ><img src="assets/img/ok.png" />OK</button>
                             </div>
                         </div>
-                        {isEditNote && <Link className="btn-cancel" type="button" to={'/keep'}><img src="../../assets/img/clear.png" />Cancel</Link>}
+                        {isEditNote && <Link className="btn-cancel" type="button" to={'/keep'}><img src="assets/img/clear.png" />Cancel</Link>}
                     </section>
                 </form>
             </section>

@@ -2,6 +2,7 @@
   margin-block-start: 5px;
   font-size: 16px;
   width: 32em;
+  padding: 0;
 }
 .add-note form {
   padding: 0 10px;
@@ -10,7 +11,6 @@
   justify-content: space-between;
   border: 2px solid black;
   border-radius: 5px;
-  margin: 5px 0;
   font-size: 1em;
 }
 
@@ -25,7 +25,7 @@
   background-color: transparent;
   outline: none;
   border: none;
-  width: 100%;
+  max-width: 100%;
   font-size: 1em;
 }
 .add-note input[name="title"] {
@@ -63,24 +63,24 @@
 }
 
 .btn-text {
-  background-image: url(../../../../../assets/img/txt.png);
+  background-image: url(/../../../../assets/img/txt.png);
 }
 
 .btn-img {
-  background-image: url(../../../../../assets/img/img.png);
+  background-image: url(../../../../assets/img/img.png);
 }
 
 .btn-video {
-  background-image: url(../../../../../assets/img/video.png);
+  background-image: url(../../../../assets/img/video.png);
 }
 
 .btn-list {
-  background-image: url(../../../../../assets/img/list.png);
+  background-image: url(/../../../assets/img/list.png);
 }
 
 .btn-note-background {
-  background-image: url(../../../../../assets/img/colors.png);
-  
+  background-image: url(/../../../assets/img/colors.png);
+
   width: 1.8em;
   height: 1.8em;
   padding: 0;
@@ -137,18 +137,18 @@
 }
 
 .btn-pin-note-add {
-  background-image: url(../../../../../assets/img/pin.png);
+  background-image: url(/../../../assets/img/pin.png);
   width: 2em;
-  height:  2em;
+  height: 2em;
   border: 2px solid black;
   border-radius: 50%;
   padding: 3px;
   margin: 5px;
 }
 
-.colors{
-    display: flex;
-    align-items: center;
+.colors {
+  display: flex;
+  align-items: center;
 }
 
 .colors-plate {
@@ -172,5 +172,5 @@
   width: 1.5em;
   height: 1.5em;
   border: 1px solid black;
-  margin: .1em .1em;
+  margin: 0.1em 0.1em;
 }

@@ -27,11 +27,11 @@ export class BooksFilter extends React.Component {
       <section className="book-filter">
 
         <form onSubmit={this.onFilter} className="book-filter-form">
-          <div>
+          <div className="form-filter-row">
             <label>Authors</label>
             <input type="text" name='title' value={title} onChange={this.handleChange} placeholder="Author name" />
-          </div>
-          <div className="book-price-filter">
+          </div >
+          <div className="book-price-filter form-filter-row">
             <label>price</label>
             <input type="number" name='minPrice' value={minPrice} onChange={this.handleChange} placeholder="Minimum" min="0" />
             <input type="number" name='maxPrice' value={maxPrice} onChange={this.handleChange} placeholder="Maximum" min="0" />

@@ -1,4 +1,5 @@
 @import url(./helpers.css);
+@import url(./missBook-responsive.css);
 
 @font-face {
   font-family: Pacifico;
@@ -28,10 +29,9 @@
 
 .book-filter {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
-
 .book-filter-form {
   display: flex;
   font-size: 16px;
@@ -273,23 +273,18 @@
   padding: 0 10px;
   background-color: white;
 }
-
-.books-add-list li {
-  background-color: #dac292;
-  padding: 10px;
-  margin: 5px 0;
-  list-style: none;
-  border: 1px solid #d1bd7b;
-  border-radius: 2px;
+.books-add-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .title-book-add {
   display: flex;
   align-items: center;
 }
-.books-add-list ul {
-  padding: 0;
-  width: 550px;
-}
+
 .book-to-add {
   display: flex;
   justify-content: space-between;
@@ -305,6 +300,22 @@
   font-size: larger;
   font-weight: bold;
   padding: 5px 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.books-add-list ul {
+  padding: 0;
+  width: 100%;
+  max-width: 800px;
+}
+.books-add-list li {
+  background-color: #dac292;
+  padding: 10px;
+  margin: 5px 0;
+  list-style: none;
+  border: 1px solid #d1bd7b;
+  border-radius: 2px;
 }
 
 .userMsg {
@@ -355,4 +366,36 @@ p {
   border-radius: 3px;
   margin-inline-end: 3px;
   font-size: 1em;
+}
+
+@media screen and (max-width: 760px) {
+  .details-book-container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .book-filter-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .form-filter-row {
+    display: flex;
+    margin-block-end: 5px;
+  }
+  .book-filter-form input[name="title"] {
+    width: 160px;
+  }
+  .form-container h2 {
+    text-align: center;
+    max-width: 430px;
+    width: 90vw;
+  }
+  .form-container input {
+    max-width: 250px;
+  }
 }
