@@ -2,7 +2,7 @@ import KeepService from '../keepServices/keepService.js'
 
 import InfoFormElement from './InfoFormElement.jsx'
 import Colors from './Colors.jsx'
-
+import { eventBus } from '../../../services/eventBusService.js'
 const { Link } = ReactRouterDOM
 
 
@@ -21,14 +21,42 @@ export default class AddNote extends React.Component {
             }
         }
     }
+
+
     componentDidMount() {
         console.log(this.props.isEditNote)
         console.log('this.props.note', this.props.note)
         if (this.props.isEditNote) {
             this.resetEditNote()
         }
+
+        this.unSubscribe = eventBus.on('add-note', (data) => this.makeItNote(data))
+
+
+
     }
 
+    componentWillUnmount() {
+        this.unSubscribe()
+
+    }
+
+    makeItNote = (data) => {
+
+        const note = {
+            type: 'NoteText',
+            isPinned: false,
+            info: {
+                title: data.subject,
+                txt: data.body
+            },
+            style: {
+                backgroundColor: 'white'
+            }
+        }
+
+        this.addNoteFromQueryString(note)
+    }
     resetEditNote = () => {
         this.setState({ note: this.props.note }, () => { console.log('state:', this.state) })
     }
@@ -47,6 +75,14 @@ export default class AddNote extends React.Component {
         this.clearForm()
         this.props.getNotes()
     }
+
+    addNoteFromQueryString = (data) => {
+        console.log(data);
+        KeepService.addNote(data)
+        this.props.getNotes()
+
+    }
+
 
     editedNote = () => {
         const note = this.state.note

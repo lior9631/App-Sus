@@ -15,7 +15,7 @@ export default class MisterEmail extends React.Component {
     }
     componentDidMount() {
         this.getEmails()
-        document.body.style.backgroundImage = "url('../assets/imgs/black_wall_free_texture_by_pshoudini_d5lkrgk.jpg')";
+        // document.body.style.backgroundImage = "url('../assets/imgs/925.jpg')";
     }
     getEmails = () => {
         mailServices.query(this.state.filterBy)

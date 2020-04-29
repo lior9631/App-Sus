@@ -48,6 +48,9 @@
 ::-webkit-scrollbar-track{
     background: transparent !important;
 }
+::-webkit-scrollbar-thumb{
+    background: transparent !important;
+}
 
 /* del icons from list */
 
@@ -164,6 +167,11 @@ width: 240px !important;
 
 .body-preview{
     align-self: flex-start !important;
+}
+
+
+.app-nav a{
+    font-size: 0.7em !important;
 }
 
 }

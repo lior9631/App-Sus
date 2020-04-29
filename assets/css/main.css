@@ -13,6 +13,7 @@
 }
 
 body {
+  background-image: url('../imgs/925.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -25,7 +26,7 @@ button {
 }
 
 .active {
-  border-bottom: beige 2px solid;
+  border-bottom: white 2px solid;
 }
 
 .far {
@@ -45,12 +46,12 @@ button {
 }
 .app-nav a {
   font-family: Playfair;
-  color: beige;
-  font-size: 0.8em;
+  color: white;
+  font-size: 1em;
 }
 
 .app-nav li:hover {
-  box-shadow: 0 4px 4px rgba(255, 251, 251, 0.4);
+  box-shadow: 0 1px 0px rgba(255, 251, 251, 0.4);
 }
 
 ::-webkit-scrollbar {
@@ -72,4 +73,28 @@ button {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #2c3e50;
+}
+
+
+.header-logo{
+  height: 20px;
+  margin-right: 15px;
+}
+
+
+
+
+/* ********************home********************* */
+
+
+.home{
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-horse{
+
+  width: 150px;
 }
