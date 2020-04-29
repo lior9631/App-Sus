@@ -23,10 +23,20 @@ export default {
 }
 
 const gDefaultMails = [
-    _createMail('nevo', 'facebook', 'coing academaly'),
-    _createMail('gil', 'instagram', 'alo dai'),
-    _createMail('shahar', 'twiter', 'lior ganel'),
-    _createMail('alon', 'linkedin', 'yaronBiton')
+    _createMail('Nevo', 'facebook', 'nevo added you as a friend please subscribe'),
+    _createMail('ash Katchamp', 'Pokemon', 'ash tafas et pikachu teasher lo halvaa kedey lasim to ba mahon' ,true),
+    _createMail('shahar', 'Nivharta', 'ata meleh ha coding academy teasher et hagaatha letekes halukat ha prasim'),
+    _createMail('Lior', 'congratiulations', 'please accept that you survive shahar for 3 days' , false , true),
+    _createMail('Hila', 'Arrive', 'please accept to MIFAL HA PAIS ! zahit be 1,000,000$'),
+    _createMail('Abir', 'bLuR', 'box-shadoowww 100242902490 for your next proj'),
+    _createMail('marko', 'ima', 'please found me'),
+    _createMail('Pinokio', 'saba jebeto ', 'the woods price are low . please come to pick your arms' , true , false),
+    _createMail('Shilgiya', 'GAMAD', 'sorry i peed at your garden'),
+    _createMail('Kipa aduma', 'ZEEV', 'i was hungry so i ate your grandma'),
+    _createMail('ADAM', 'apple', 'DONOT ever ate them!!'),
+    _createMail('stich', 'Instagram', 'stich just follow your please subscribe'),
+    _createMail('Shrek', 'alone', 'im alone my friend fiyona just left me.. please connect to zoom '),
+
 ]
 
 
@@ -49,7 +59,7 @@ function _createMails() {
 
 }
 
-function _createMail(delivery, subject, body, isRead = false , isSent=false) {
+function _createMail(delivery, subject, body, isRead = false , isSent=false, isStar=false) {
     let time = new Date();
     let date = `${time.getDate()}/${time.getMonth()}/${time.getFullYear()}`
     return {
@@ -58,7 +68,7 @@ function _createMail(delivery, subject, body, isRead = false , isSent=false) {
         body,
         isRead,
         sentAt: date,
-        isStar: false,
+        isStar,
         isDelete: false,
         isSent,
         id: utils.makeId()

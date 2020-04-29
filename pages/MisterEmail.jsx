@@ -36,7 +36,7 @@ export default class MisterEmail extends React.Component {
         mailServices.setStar(id).then(this.getEmails())
 
     }
-    
+
 
     setUnRead = (id) => {
         mailServices.setUnRead(id)
@@ -56,11 +56,11 @@ export default class MisterEmail extends React.Component {
 
     removeMail = (id) => {
         mailServices.sendToTrash(id)
-        .then(() =>{
-            this.getEmails();
+            .then(() => {
+                this.getEmails();
                 // eventBus.emit('changeBar', this.state.mails)
-        })
-        
+            })
+
 
 
 
@@ -71,26 +71,26 @@ export default class MisterEmail extends React.Component {
     filterStars = () => {
         mailServices.filterByStar()
             .then(mails => {
-                this.setState({ mails})
+                this.setState({ mails })
             })
 
     }
 
-    setInbox = () =>{
+    setInbox = () => {
         mailServices.bringAllMails()
-        .then(mails => this.setState({mails}))
+            .then(mails => this.setState({ mails }))
     }
 
     filterTrash = () => {
         mailServices.filterByTrash()
             .then(mails => {
-                this.setState({ mails})
+                this.setState({ mails })
             })
     }
 
-    filterSent = () =>{
+    filterSent = () => {
         mailServices.filterBySent()
-        .then(mails => this.setState({mails}))
+            .then(mails => this.setState({ mails }))
     }
 
 
@@ -113,7 +113,7 @@ export default class MisterEmail extends React.Component {
                             <div onClick={this.toggleCompose} className="compose-icon"></div>
                             <p onClick={this.toggleCompose} className="compose-paragraph">Compose</p>
                         </div>
-                        <div onClick={this.setInbox} className="fas fa-inbox nav-select"> Inbox</div>
+                        <div onClick={this.setInbox} className="fas fa-inbox nav-select"> Inbox </div>
                         <div onClick={this.filterStars} className="far fa-star"> Starred</div>
                         <div onClick={this.filterSent} className="fas fa-paper-plane nav-select"> Sent</div>
                         <div onClick={this.filterTrash} className="far fa-trash nav-select"> Trash</div>

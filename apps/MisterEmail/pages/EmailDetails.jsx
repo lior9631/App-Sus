@@ -36,6 +36,10 @@ export default class EmailDetails extends React.Component {
 
     }
 
+    goBack = () =>{
+        this.props.history.push('/email')
+    }
+
 
     render() {
         const { mail } = this.state
@@ -43,11 +47,14 @@ export default class EmailDetails extends React.Component {
         const Loading = <p>Loading...</p>
         return ((!mail) ? Loading : <section className="details">
             <h2>{mail.subject}</h2>
-            <div className="mail-container">
+            <div className="container-footer">{mail.sentAt}</div>
+            <div className="details-container">
                 {mail.body}
             </div>
-            <div className="container-footer">{mail.sentAt}</div>
-            <div className="remove-mail" onClick={this.removeMail}>X</div>
+            <section className="details-footer">
+                <button className="detail-back" onClick={this.goBack}>Back</button>
+                <button className="remove-mail" onClick={this.removeMail}>Delete</button>
+            </section>
         </section>
 
         )
