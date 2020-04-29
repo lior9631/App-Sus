@@ -5,8 +5,8 @@ export default function ItemsList(props) {
 
     return (
         <li>
-            <input type="text" name={idx} onChange={handleChange} value={state.note.info.todos[idx].txt} />
-            <button type="button" onClick={() => { deleteTodo(idx) }}>x</button>
+            <input type="text" name={idx} onChange={handleChange} value={state.note.info.todos[idx].txt} autoFocus />
+            <button className="btn-del-todo" type="button" onClick={() => { deleteTodo(idx) }}>x</button>
         </li>
     )
 }

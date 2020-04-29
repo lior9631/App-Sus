@@ -174,3 +174,19 @@
   border: 1px solid black;
   margin: 0.1em 0.1em;
 }
+
+.btn-add-todo {
+  background: transparent;
+  border: none;
+  text-decoration: underline;
+  margin: 2px 3px 0;
+  font-weight: bold;
+}
+
+.btn-del-todo {
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: darkred;
+}

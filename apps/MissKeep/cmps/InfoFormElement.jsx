@@ -20,7 +20,7 @@ export default function InfoFormElement(props) {
         case 'NoteTodos':
             return (
                 <React.Fragment>
-                    <button nameClass="btn-add-todo" type="button" onClick={addTodo}>+Add todo</button>
+                    <button className="btn-add-todo" type="button" onClick={addTodo}>+Add todo</button>
                 </React.Fragment>
             )
     }
