@@ -7,8 +7,8 @@ export default class Home extends React.Component {
     render() {
         return (
             <section className="home">
-                <img src="/assets/imgs/knight.png" alt="" className="home-horse" />
+                <img src="./assets/imgs/knight.png" alt="" className="home-horse" />
             </section>
-        )
+        )0
     }
 }
