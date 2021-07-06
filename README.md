@@ -1,7 +1,7 @@
 # AppSus
 It's a collection of mini-projects I created with ReactJS during my studies.
 
-The project was created together with my classmates Shahar Peretz.
+The project was created together with my classmate Shahar Peretz.
 
 ### Link
 [To see the project, click here](https://lior9631.github.io/App-Sus/)
